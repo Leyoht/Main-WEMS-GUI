@@ -54,6 +54,14 @@ namespace UC1_Form
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
         }
-    }
 
+        private void btnMoveEmp_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Inventory_Report().Show();
+        }
+    }
 }

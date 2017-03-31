@@ -73,6 +73,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cmbClient = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             this.tabEmpSuperv.SuspendLayout();
@@ -299,6 +302,7 @@
             this.btnMoveEmp.TabIndex = 12;
             this.btnMoveEmp.Text = ">>";
             this.btnMoveEmp.UseVisualStyleBackColor = true;
+            this.btnMoveEmp.Click += new System.EventHandler(this.btnMoveEmp_Click);
             // 
             // lstCurrentAss
             // 
@@ -393,6 +397,12 @@
             // 
             this.lstQualEmp.FormattingEnabled = true;
             this.lstQualEmp.ItemHeight = 16;
+            this.lstQualEmp.Items.AddRange(new object[] {
+            "Matthew Camino",
+            "David Fisher",
+            "Evan Ligget",
+            "Dan Martersteck",
+            "Alexander Reynaud"});
             this.lstQualEmp.Location = new System.Drawing.Point(7, 187);
             this.lstQualEmp.Margin = new System.Windows.Forms.Padding(4);
             this.lstQualEmp.Name = "lstQualEmp";
@@ -401,6 +411,9 @@
             // 
             // tabEmpEquip
             // 
+            this.tabEmpEquip.Controls.Add(this.label18);
+            this.tabEmpEquip.Controls.Add(this.cmbClient);
+            this.tabEmpEquip.Controls.Add(this.button1);
             this.tabEmpEquip.Controls.Add(this.label17);
             this.tabEmpEquip.Controls.Add(this.label16);
             this.tabEmpEquip.Controls.Add(this.btnMoveEquip);
@@ -560,6 +573,36 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(395, 247);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Make Resource Report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cmbClient
+            // 
+            this.cmbClient.FormattingEnabled = true;
+            this.cmbClient.Location = new System.Drawing.Point(404, 191);
+            this.cmbClient.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbClient.Name = "cmbClient";
+            this.cmbClient.Size = new System.Drawing.Size(160, 24);
+            this.cmbClient.TabIndex = 8;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(508, 170);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 17);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Sign for";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -639,6 +682,9 @@
         private System.Windows.Forms.ListBox lstOpenEquip;
         private System.Windows.Forms.ListBox lstNewEquip;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cmbClient;
     }
 }
 
