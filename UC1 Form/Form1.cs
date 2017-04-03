@@ -31,6 +31,13 @@ namespace UC1_Form
             MessageBox.Show(msg, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private bool validateInput()
+        {
+            //makes sure all the values are filled
+            return false;
+        }
+
+
         //ABOUT THE MAIN FORM
         /*/ The first thing the employee will see is a form that requires them to log in.
             At this point, the tabs are all disabled and will remain that way until the user logs in as an authorized member
@@ -84,9 +91,20 @@ namespace UC1_Form
             //this button will ONLY be enabled if the boolean value that determines the employee's EEOC status is set to TRUE
         }
 
+        private const int cSize = 40;
+        private int mIndex;
+        private string[] mFile = new string[cSize];
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             //opens a prompt for the user to upload a spreadsheet
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Spreadsheet Files|*.xlsx";
+            ofd.Title = "Select a spreadsheet";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+                txtBrowse.Text = ofd.FileName;
+            }
+            //sends the file name to the 
+            mFile[mIndex] = txtBrowse.Text;
         }
 
         private void btnSubmitSE_Click(object sender, EventArgs e)
