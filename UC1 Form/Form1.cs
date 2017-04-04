@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Build 0.1.2a, 31-03-2017
+//Build 0.1.4a, 03-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 
@@ -19,6 +19,7 @@ namespace UC1_Form
         public Form1()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '*';
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,6 +48,24 @@ namespace UC1_Form
 
         private void btnMainSubmit_Click(object sender, EventArgs e)
         {
+            string username;
+            string password;
+            username = txtUsername.Text;
+            password = txtPassword.Text;
+
+            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER"))
+            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
+            Such a database could probably set up in Microsoft Access or Notepad
+            /*/
+            {
+                //enable the appropriate tabs, according to the user's credentials
+                //also change the label's text (on the bottom) so that it displays the user's name
+            }
+            else
+            {
+                MessageBox.Show("Username or password was incorrect", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
                 If the username-password combination does not match what we have on file, throw an error at the user
                 If the username-password combination DOES match what we have on file, pull up the first tab that the user qualifies for
@@ -54,16 +73,6 @@ namespace UC1_Form
                     Meanwhile, a supervisor could access the Employee and Equipment management
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            //The user enters their username here
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-            //The user enters their password here
         }
 
         private void btnExit_Click(object sender, EventArgs e)

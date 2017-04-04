@@ -58,6 +58,9 @@
             this.cmbAssProj = new System.Windows.Forms.ComboBox();
             this.lstQualEmp = new System.Windows.Forms.ListBox();
             this.tabEmpEquip = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radVNo = new System.Windows.Forms.RadioButton();
+            this.radVYes = new System.Windows.Forms.RadioButton();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbClient = new System.Windows.Forms.ComboBox();
             this.btnReport = new System.Windows.Forms.Button();
@@ -76,9 +79,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radVYes = new System.Windows.Forms.RadioButton();
-            this.radVNo = new System.Windows.Forms.RadioButton();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             this.tabEmpSuperv.SuspendLayout();
@@ -414,6 +414,39 @@
             this.tabEmpEquip.Text = "Equipment Management";
             this.tabEmpEquip.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radVNo);
+            this.groupBox1.Controls.Add(this.radVYes);
+            this.groupBox1.Location = new System.Drawing.Point(307, 94);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(114, 41);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Is this a vehicle?";
+            // 
+            // radVNo
+            // 
+            this.radVNo.AutoSize = true;
+            this.radVNo.Location = new System.Drawing.Point(69, 19);
+            this.radVNo.Name = "radVNo";
+            this.radVNo.Size = new System.Drawing.Size(39, 17);
+            this.radVNo.TabIndex = 1;
+            this.radVNo.TabStop = true;
+            this.radVNo.Text = "No";
+            this.radVNo.UseVisualStyleBackColor = true;
+            // 
+            // radVYes
+            // 
+            this.radVYes.AutoSize = true;
+            this.radVYes.Location = new System.Drawing.Point(6, 19);
+            this.radVYes.Name = "radVYes";
+            this.radVYes.Size = new System.Drawing.Size(43, 17);
+            this.radVYes.TabIndex = 0;
+            this.radVYes.TabStop = true;
+            this.radVYes.Text = "Yes";
+            this.radVYes.UseVisualStyleBackColor = true;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -518,7 +551,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(104, 20);
             this.txtUsername.TabIndex = 0;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPassword
             // 
@@ -527,7 +559,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(104, 20);
             this.txtPassword.TabIndex = 1;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnMainSubmit
             // 
@@ -536,7 +567,7 @@
             this.btnMainSubmit.Name = "btnMainSubmit";
             this.btnMainSubmit.Size = new System.Drawing.Size(56, 19);
             this.btnMainSubmit.TabIndex = 2;
-            this.btnMainSubmit.Text = "Submit";
+            this.btnMainSubmit.Text = "Login";
             this.btnMainSubmit.UseVisualStyleBackColor = true;
             this.btnMainSubmit.Click += new System.EventHandler(this.btnMainSubmit_Click);
             // 
@@ -592,39 +623,6 @@
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radVNo);
-            this.groupBox1.Controls.Add(this.radVYes);
-            this.groupBox1.Location = new System.Drawing.Point(307, 94);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(114, 41);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Is this a vehicle?";
-            // 
-            // radVYes
-            // 
-            this.radVYes.AutoSize = true;
-            this.radVYes.Location = new System.Drawing.Point(6, 19);
-            this.radVYes.Name = "radVYes";
-            this.radVYes.Size = new System.Drawing.Size(43, 17);
-            this.radVYes.TabIndex = 0;
-            this.radVYes.TabStop = true;
-            this.radVYes.Text = "Yes";
-            this.radVYes.UseVisualStyleBackColor = true;
-            // 
-            // radVNo
-            // 
-            this.radVNo.AutoSize = true;
-            this.radVNo.Location = new System.Drawing.Point(69, 19);
-            this.radVNo.Name = "radVNo";
-            this.radVNo.Size = new System.Drawing.Size(39, 17);
-            this.radVNo.TabIndex = 1;
-            this.radVNo.TabStop = true;
-            this.radVNo.Text = "No";
-            this.radVNo.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
