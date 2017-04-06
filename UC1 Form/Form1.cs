@@ -58,6 +58,8 @@ namespace UC1_Form
         {
             //The user enters their password here
         }
+        //note that the user can either enter a username/password or swipe their card
+        //the login process will be displayed by the progress bar below the username & password textboxes
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -186,6 +188,16 @@ namespace UC1_Form
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             //this will hold a list of all the clients that are looking for and/or holding equipment
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            new Paystub().Show();
+        }
+
+        private void btnEditPay_Click(object sender, EventArgs e)
+        {
+            new Paystub().Show();
         }
     }
 }
