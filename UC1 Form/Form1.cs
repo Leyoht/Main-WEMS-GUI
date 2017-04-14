@@ -109,6 +109,7 @@ namespace UC1_Form
             /*/ This area will be populated with links to PDF time reports once the employee logs in
                 The most recent time report will be shown at the top of the list
                 Downloading a PDF is as simple as double-clicking one of the listed items
+                    From here, the employee can print their time report if they want
             /*/
         }
 

@@ -30,9 +30,9 @@
         {
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
+            this.btnEditPay = new System.Windows.Forms.Button();
             this.btnSubPay = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnEEOC = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnSubmitSE = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lstReports = new System.Windows.Forms.ListBox();
             this.tabBookkeeper = new System.Windows.Forms.TabPage();
+            this.btnGrant = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnValid = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -94,8 +95,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.btnEditPay = new System.Windows.Forms.Button();
-            this.btnGrant = new System.Windows.Forms.Button();
+            this.btnEEOC = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             this.tabBookkeeper.SuspendLayout();
@@ -123,7 +123,6 @@
             this.tabEmployee.Controls.Add(this.btnEditPay);
             this.tabEmployee.Controls.Add(this.btnSubPay);
             this.tabEmployee.Controls.Add(this.label14);
-            this.tabEmployee.Controls.Add(this.btnEEOC);
             this.tabEmployee.Controls.Add(this.label13);
             this.tabEmployee.Controls.Add(this.btnBrowse);
             this.tabEmployee.Controls.Add(this.btnSubmitSE);
@@ -140,6 +139,17 @@
             this.tabEmployee.TabIndex = 2;
             this.tabEmployee.Text = "Standard Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnEditPay
+            // 
+            this.btnEditPay.Enabled = false;
+            this.btnEditPay.Location = new System.Drawing.Point(201, 212);
+            this.btnEditPay.Name = "btnEditPay";
+            this.btnEditPay.Size = new System.Drawing.Size(98, 28);
+            this.btnEditPay.TabIndex = 16;
+            this.btnEditPay.Text = "Edit Paystub";
+            this.btnEditPay.UseVisualStyleBackColor = true;
+            this.btnEditPay.Click += new System.EventHandler(this.btnEditPay_Click);
             // 
             // btnSubPay
             // 
@@ -160,17 +170,6 @@
             this.label14.Size = new System.Drawing.Size(192, 17);
             this.label14.TabIndex = 14;
             this.label14.Text = "You (do not) file under EEOC";
-            // 
-            // btnEEOC
-            // 
-            this.btnEEOC.Location = new System.Drawing.Point(375, 30);
-            this.btnEEOC.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEEOC.Name = "btnEEOC";
-            this.btnEEOC.Size = new System.Drawing.Size(187, 28);
-            this.btnEEOC.TabIndex = 13;
-            this.btnEEOC.Text = "Fill out the EEOC Form!";
-            this.btnEEOC.UseVisualStyleBackColor = true;
-            this.btnEEOC.Click += new System.EventHandler(this.btnEEOC_Click);
             // 
             // label13
             // 
@@ -267,6 +266,7 @@
             // 
             // tabBookkeeper
             // 
+            this.tabBookkeeper.Controls.Add(this.btnEEOC);
             this.tabBookkeeper.Controls.Add(this.btnGrant);
             this.tabBookkeeper.Controls.Add(this.btnEdit);
             this.tabBookkeeper.Controls.Add(this.btnValid);
@@ -289,6 +289,15 @@
             this.tabBookkeeper.TabIndex = 0;
             this.tabBookkeeper.Text = "Bookkeeper";
             this.tabBookkeeper.UseVisualStyleBackColor = true;
+            // 
+            // btnGrant
+            // 
+            this.btnGrant.Location = new System.Drawing.Point(276, 122);
+            this.btnGrant.Name = "btnGrant";
+            this.btnGrant.Size = new System.Drawing.Size(162, 28);
+            this.btnGrant.TabIndex = 13;
+            this.btnGrant.Text = "Grant Employee Edit";
+            this.btnGrant.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
@@ -836,25 +845,15 @@
             this.progressBar1.Size = new System.Drawing.Size(208, 28);
             this.progressBar1.TabIndex = 7;
             // 
-            // btnEditPay
+            // btnEEOC
             // 
-            this.btnEditPay.Enabled = false;
-            this.btnEditPay.Location = new System.Drawing.Point(201, 212);
-            this.btnEditPay.Name = "btnEditPay";
-            this.btnEditPay.Size = new System.Drawing.Size(98, 28);
-            this.btnEditPay.TabIndex = 16;
-            this.btnEditPay.Text = "Edit Paystub";
-            this.btnEditPay.UseVisualStyleBackColor = true;
-            this.btnEditPay.Click += new System.EventHandler(this.btnEditPay_Click);
-            // 
-            // btnGrant
-            // 
-            this.btnGrant.Location = new System.Drawing.Point(276, 127);
-            this.btnGrant.Name = "btnGrant";
-            this.btnGrant.Size = new System.Drawing.Size(162, 23);
-            this.btnGrant.TabIndex = 13;
-            this.btnGrant.Text = "Grant Employee Edit";
-            this.btnGrant.UseVisualStyleBackColor = true;
+            this.btnEEOC.Location = new System.Drawing.Point(251, 87);
+            this.btnEEOC.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEEOC.Name = "btnEEOC";
+            this.btnEEOC.Size = new System.Drawing.Size(187, 28);
+            this.btnEEOC.TabIndex = 14;
+            this.btnEEOC.Text = "Fill Employee EEOC Form";
+            this.btnEEOC.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -931,7 +930,6 @@
         private System.Windows.Forms.TextBox txtBrowse;
         private System.Windows.Forms.ListBox lstProjectBids;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnEEOC;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnMoveEquip;
@@ -963,6 +961,7 @@
         private System.Windows.Forms.ListBox lstActEmp;
         private System.Windows.Forms.Button btnEditPay;
         private System.Windows.Forms.Button btnGrant;
+        private System.Windows.Forms.Button btnEEOC;
     }
 }
 
