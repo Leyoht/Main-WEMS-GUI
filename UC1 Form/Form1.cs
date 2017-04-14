@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Build 0.1.2a, 31-03-2017
+//Build 0.2.2, 13-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 
@@ -19,6 +19,7 @@ namespace UC1_Form
         public Form1()
         {
             InitializeComponent();
+            txtPassword.PasswordChar = '*';
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,6 +31,10 @@ namespace UC1_Form
         {
             MessageBox.Show(msg, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        private void displayError(string err)
+        {
+            MessageBox.Show(err, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
         //ABOUT THE MAIN FORM
         /*/ The first thing the employee will see is a form that requires them to log in.
@@ -38,7 +43,7 @@ namespace UC1_Form
                 NOTE: For now, it just says "Welcome Alex!" as a placeholder
         /*/
 
-        private void btnMainSubmit_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
                 If the username-password combination does not match what we have on file, throw an error at the user
@@ -47,19 +52,24 @@ namespace UC1_Form
                     Meanwhile, a supervisor could access the Employee and Equipment management
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
-        }
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            //The user enters their username here
-        }
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-            //The user enters their password here
+            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database
+            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
+            Such a database could probably set up in Microsoft Access or Notepad
+            /*/
+            {
+                tabMain.Enabled = true;
+                //enable the tabs relating to this user's account; the tabs will be disabled in the final build
+            }
+            else
+            {
+                displayError("Your username and/or password was incorrect");
+                return;
+            }
         }
-        //note that the user can either enter a username/password or swipe their card
-        //the login process will be displayed by the progress bar below the username & password textboxes
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -86,9 +96,21 @@ namespace UC1_Form
             //this button will ONLY be enabled if the boolean value that determines the employee's EEOC status is set to TRUE
         }
 
+        private const int cSize = 40;
+        private int mIndex;
+        private string[] mFile = new string[cSize];
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             //opens a prompt for the user to upload a spreadsheet
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Spreadsheet Files|*.xlsx";
+            ofd.Title = "Select a spreadsheet";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                txtBrowse.Text = ofd.FileName;
+            }
+            //sends the file name to the 
+            mFile[mIndex] = txtBrowse.Text;
         }
 
         private void btnSubmitSE_Click(object sender, EventArgs e)
@@ -109,7 +131,6 @@ namespace UC1_Form
             /*/ This area will be populated with links to PDF time reports once the employee logs in
                 The most recent time report will be shown at the top of the list
                 Downloading a PDF is as simple as double-clicking one of the listed items
-                    From here, the employee can print their time report if they want
             /*/
         }
 
@@ -189,16 +210,6 @@ namespace UC1_Form
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             //this will hold a list of all the clients that are looking for and/or holding equipment
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            new Paystub().Show();
-        }
-
-        private void btnEditPay_Click(object sender, EventArgs e)
-        {
-            new Paystub().Show();
         }
     }
 }
