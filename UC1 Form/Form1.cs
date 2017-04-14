@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//Build 0.2.2, 13-04-2017
+//Build 0.2.3, 14-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
-
+/*/
+ * The data within this program will be strictly tied into the SQL database we have created 
+ * Certain parts of our database will demand "XML files" from objects; these are simply outside files that cannot be loaded into the form--such as .docx or .xlsx files
+/*/
 namespace UC1_Form
 {
     public partial class Form1 : Form
