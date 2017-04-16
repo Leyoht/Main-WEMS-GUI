@@ -8,11 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-<<<<<<< HEAD
-//Build 0.1.4a, 03-04-2017
-=======
-//Build 0.2.4, 16-04-2017
->>>>>>> refs/remotes/origin/master
+
+//Build 0.2.5, 16-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -59,10 +56,8 @@ namespace UC1_Form
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username;
-            string password;
-            username = txtUsername.Text;
-            password = txtPassword.Text;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
             if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER"))
             /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
@@ -85,10 +80,7 @@ namespace UC1_Form
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
 
-<<<<<<< HEAD
-=======
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+
 
             if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database
             /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
@@ -105,7 +97,6 @@ namespace UC1_Form
             }
         }
 
->>>>>>> refs/remotes/origin/master
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -140,12 +131,9 @@ namespace UC1_Form
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Spreadsheet Files|*.xlsx";
             ofd.Title = "Select a spreadsheet";
-<<<<<<< HEAD
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-=======
+
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
->>>>>>> refs/remotes/origin/master
                 txtBrowse.Text = ofd.FileName;
             }
             //sends the file name to the 
