@@ -30,8 +30,8 @@
         {
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnEEOC = new System.Windows.Forms.Button();
+            this.btnEditPay = new System.Windows.Forms.Button();
+            this.btnSubPay = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnSubmitSE = new System.Windows.Forms.Button();
@@ -42,6 +42,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lstReports = new System.Windows.Forms.ListBox();
             this.tabBookkeeper = new System.Windows.Forms.TabPage();
+            this.btnEEOC = new System.Windows.Forms.Button();
+            this.btnGrant = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnValid = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lstHours = new System.Windows.Forms.ListBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lstActEmp = new System.Windows.Forms.ListBox();
             this.tabEmpSuperv = new System.Windows.Forms.TabPage();
             this.btnSubChange = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -73,14 +88,19 @@
             this.lstNewEquip = new System.Windows.Forms.ListBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnMainSubmit = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+>>>>>>> refs/remotes/origin/master
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
+            this.tabBookkeeper.SuspendLayout();
             this.tabEmpSuperv.SuspendLayout();
             this.tabEmpEquip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -102,8 +122,8 @@
             // 
             // tabEmployee
             // 
-            this.tabEmployee.Controls.Add(this.label14);
-            this.tabEmployee.Controls.Add(this.btnEEOC);
+            this.tabEmployee.Controls.Add(this.btnEditPay);
+            this.tabEmployee.Controls.Add(this.btnSubPay);
             this.tabEmployee.Controls.Add(this.label13);
             this.tabEmployee.Controls.Add(this.btnBrowse);
             this.tabEmployee.Controls.Add(this.btnSubmitSE);
@@ -121,29 +141,32 @@
             this.tabEmployee.Text = "Standard Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // btnEditPay
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(278, 8);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(143, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "You (do not) file under EEOC";
+            this.btnEditPay.Enabled = false;
+            this.btnEditPay.Location = new System.Drawing.Point(151, 172);
+            this.btnEditPay.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEditPay.Name = "btnEditPay";
+            this.btnEditPay.Size = new System.Drawing.Size(74, 23);
+            this.btnEditPay.TabIndex = 16;
+            this.btnEditPay.Text = "Edit Paystub";
+            this.btnEditPay.UseVisualStyleBackColor = true;
             // 
-            // btnEEOC
+            // btnSubPay
             // 
-            this.btnEEOC.Location = new System.Drawing.Point(281, 24);
-            this.btnEEOC.Name = "btnEEOC";
-            this.btnEEOC.Size = new System.Drawing.Size(140, 23);
-            this.btnEEOC.TabIndex = 13;
-            this.btnEEOC.Text = "Fill out the EEOC Form!";
-            this.btnEEOC.UseVisualStyleBackColor = true;
-            this.btnEEOC.Click += new System.EventHandler(this.btnEEOC_Click);
+            this.btnSubPay.Enabled = false;
+            this.btnSubPay.Location = new System.Drawing.Point(151, 200);
+            this.btnSubPay.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubPay.Name = "btnSubPay";
+            this.btnSubPay.Size = new System.Drawing.Size(86, 23);
+            this.btnSubPay.TabIndex = 15;
+            this.btnSubPay.Text = "Submit Paystub";
+            this.btnSubPay.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(280, 94);
+            this.label13.Location = new System.Drawing.Point(281, 58);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 13);
             this.label13.TabIndex = 12;
@@ -152,7 +175,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(371, 171);
+            this.btnBrowse.Location = new System.Drawing.Point(373, 172);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(50, 23);
             this.btnBrowse.TabIndex = 11;
@@ -162,7 +185,7 @@
             // 
             // btnSubmitSE
             // 
-            this.btnSubmitSE.Location = new System.Drawing.Point(346, 197);
+            this.btnSubmitSE.Location = new System.Drawing.Point(347, 200);
             this.btnSubmitSE.Name = "btnSubmitSE";
             this.btnSubmitSE.Size = new System.Drawing.Size(75, 23);
             this.btnSubmitSE.TabIndex = 10;
@@ -172,17 +195,17 @@
             // 
             // txtBrowse
             // 
-            this.txtBrowse.Location = new System.Drawing.Point(219, 173);
+            this.txtBrowse.Location = new System.Drawing.Point(250, 175);
             this.txtBrowse.Name = "txtBrowse";
-            this.txtBrowse.Size = new System.Drawing.Size(146, 20);
+            this.txtBrowse.Size = new System.Drawing.Size(117, 20);
             this.txtBrowse.TabIndex = 9;
             // 
             // lstProjectBids
             // 
             this.lstProjectBids.FormattingEnabled = true;
-            this.lstProjectBids.Location = new System.Drawing.Point(219, 109);
+            this.lstProjectBids.Location = new System.Drawing.Point(220, 73);
             this.lstProjectBids.Name = "lstProjectBids";
-            this.lstProjectBids.Size = new System.Drawing.Size(202, 56);
+            this.lstProjectBids.Size = new System.Drawing.Size(202, 82);
             this.lstProjectBids.TabIndex = 8;
             // 
             // label6
@@ -206,7 +229,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 143);
+            this.label5.Location = new System.Drawing.Point(3, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 13);
             this.label5.TabIndex = 2;
@@ -215,14 +238,29 @@
             // lstReports
             // 
             this.lstReports.FormattingEnabled = true;
-            this.lstReports.Location = new System.Drawing.Point(3, 159);
+            this.lstReports.Location = new System.Drawing.Point(3, 154);
             this.lstReports.Name = "lstReports";
-            this.lstReports.Size = new System.Drawing.Size(179, 56);
+            this.lstReports.Size = new System.Drawing.Size(144, 69);
             this.lstReports.TabIndex = 1;
             this.lstReports.SelectedIndexChanged += new System.EventHandler(this.lstReports_SelectedIndexChanged);
             // 
             // tabBookkeeper
             // 
+            this.tabBookkeeper.Controls.Add(this.btnEEOC);
+            this.tabBookkeeper.Controls.Add(this.btnGrant);
+            this.tabBookkeeper.Controls.Add(this.btnEdit);
+            this.tabBookkeeper.Controls.Add(this.btnValid);
+            this.tabBookkeeper.Controls.Add(this.label26);
+            this.tabBookkeeper.Controls.Add(this.textBox1);
+            this.tabBookkeeper.Controls.Add(this.label25);
+            this.tabBookkeeper.Controls.Add(this.label24);
+            this.tabBookkeeper.Controls.Add(this.label23);
+            this.tabBookkeeper.Controls.Add(this.label22);
+            this.tabBookkeeper.Controls.Add(this.lstHours);
+            this.tabBookkeeper.Controls.Add(this.label21);
+            this.tabBookkeeper.Controls.Add(this.label20);
+            this.tabBookkeeper.Controls.Add(this.label19);
+            this.tabBookkeeper.Controls.Add(this.lstActEmp);
             this.tabBookkeeper.Location = new System.Drawing.Point(4, 22);
             this.tabBookkeeper.Margin = new System.Windows.Forms.Padding(2);
             this.tabBookkeeper.Name = "tabBookkeeper";
@@ -231,6 +269,153 @@
             this.tabBookkeeper.TabIndex = 0;
             this.tabBookkeeper.Text = "Bookkeeper";
             this.tabBookkeeper.UseVisualStyleBackColor = true;
+            // 
+            // btnEEOC
+            // 
+            this.btnEEOC.Enabled = false;
+            this.btnEEOC.Location = new System.Drawing.Point(188, 71);
+            this.btnEEOC.Name = "btnEEOC";
+            this.btnEEOC.Size = new System.Drawing.Size(140, 23);
+            this.btnEEOC.TabIndex = 14;
+            this.btnEEOC.Text = "Fill Employee EEOC Form";
+            this.btnEEOC.UseVisualStyleBackColor = true;
+            // 
+            // btnGrant
+            // 
+            this.btnGrant.Location = new System.Drawing.Point(207, 99);
+            this.btnGrant.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGrant.Name = "btnGrant";
+            this.btnGrant.Size = new System.Drawing.Size(122, 23);
+            this.btnGrant.TabIndex = 13;
+            this.btnGrant.Text = "Grant Employee Edit";
+            this.btnGrant.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(365, 202);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(56, 19);
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnValid
+            // 
+            this.btnValid.Location = new System.Drawing.Point(365, 178);
+            this.btnValid.Margin = new System.Windows.Forms.Padding(2);
+            this.btnValid.Name = "btnValid";
+            this.btnValid.Size = new System.Drawing.Size(56, 19);
+            this.btnValid.TabIndex = 11;
+            this.btnValid.Text = "Validate";
+            this.btnValid.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(304, 202);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(25, 13);
+            this.label26.TabIndex = 10;
+            this.label26.Text = "Pay";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(345, 127);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(218, 202);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(76, 13);
+            this.label25.TabIndex = 8;
+            this.label25.Text = "Hours Worked";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 202);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(26, 13);
+            this.label24.TabIndex = 7;
+            this.label24.Text = "Day";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(49, 202);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(46, 13);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Clock In";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(128, 202);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 13);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "Clock Out";
+            // 
+            // lstHours
+            // 
+            this.lstHours.FormattingEnabled = true;
+            this.lstHours.Location = new System.Drawing.Point(4, 127);
+            this.lstHours.Margin = new System.Windows.Forms.Padding(2);
+            this.lstHours.Name = "lstHours";
+            this.lstHours.Size = new System.Drawing.Size(325, 69);
+            this.lstHours.TabIndex = 4;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(343, 110);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(80, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Pay Rate ($/hr)";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(2, 110);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(74, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Logged Hours";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(2, 11);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(91, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Active Employees";
+            // 
+            // lstActEmp
+            // 
+            this.lstActEmp.FormattingEnabled = true;
+            this.lstActEmp.Location = new System.Drawing.Point(4, 27);
+            this.lstActEmp.Margin = new System.Windows.Forms.Padding(2);
+            this.lstActEmp.Name = "lstActEmp";
+            this.lstActEmp.Size = new System.Drawing.Size(133, 69);
+            this.lstActEmp.TabIndex = 0;
             // 
             // tabEmpSuperv
             // 
@@ -356,7 +541,7 @@
             this.lstQual.FormattingEnabled = true;
             this.lstQual.Location = new System.Drawing.Point(279, 22);
             this.lstQual.Name = "lstQual";
-            this.lstQual.Size = new System.Drawing.Size(130, 49);
+            this.lstQual.Size = new System.Drawing.Size(130, 34);
             this.lstQual.TabIndex = 5;
             // 
             // label7
@@ -560,8 +745,9 @@
             this.txtPassword.Size = new System.Drawing.Size(104, 20);
             this.txtPassword.TabIndex = 1;
             // 
-            // btnMainSubmit
+            // btnLogin
             // 
+<<<<<<< HEAD
             this.btnMainSubmit.Location = new System.Drawing.Point(540, 116);
             this.btnMainSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainSubmit.Name = "btnMainSubmit";
@@ -570,6 +756,16 @@
             this.btnMainSubmit.Text = "Login";
             this.btnMainSubmit.UseVisualStyleBackColor = true;
             this.btnMainSubmit.Click += new System.EventHandler(this.btnMainSubmit_Click);
+=======
+            this.btnLogin.Location = new System.Drawing.Point(540, 116);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(56, 19);
+            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+>>>>>>> refs/remotes/origin/master
             // 
             // label1
             // 
@@ -624,17 +820,28 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+<<<<<<< HEAD
+=======
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(440, 171);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(156, 23);
+            this.progressBar1.TabIndex = 7;
+            // 
+>>>>>>> refs/remotes/origin/master
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 249);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnMainSubmit);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.tabMain);
@@ -647,6 +854,8 @@
             this.tabMain.ResumeLayout(false);
             this.tabEmployee.ResumeLayout(false);
             this.tabEmployee.PerformLayout();
+            this.tabBookkeeper.ResumeLayout(false);
+            this.tabBookkeeper.PerformLayout();
             this.tabEmpSuperv.ResumeLayout(false);
             this.tabEmpSuperv.PerformLayout();
             this.tabEmpEquip.ResumeLayout(false);
@@ -662,7 +871,7 @@
 
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnMainSubmit;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -695,8 +904,6 @@
         private System.Windows.Forms.Button btnSubmitSE;
         private System.Windows.Forms.TextBox txtBrowse;
         private System.Windows.Forms.ListBox lstProjectBids;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnEEOC;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnMoveEquip;
@@ -711,6 +918,24 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radVNo;
         private System.Windows.Forms.RadioButton radVYes;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button btnSubPay;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnValid;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ListBox lstHours;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ListBox lstActEmp;
+        private System.Windows.Forms.Button btnEditPay;
+        private System.Windows.Forms.Button btnGrant;
+        private System.Windows.Forms.Button btnEEOC;
     }
 }
 

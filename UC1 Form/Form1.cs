@@ -8,10 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+<<<<<<< HEAD
 //Build 0.1.4a, 03-04-2017
+=======
+//Build 0.2.4, 16-04-2017
+>>>>>>> refs/remotes/origin/master
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
-
+/*/
+ * The data within this program will be strictly tied into the SQL database we have created 
+ * Certain parts of our database will demand "XML files" from objects; these are simply outside files that cannot be loaded into the form--such as .docx or .xlsx files
+/*/
 namespace UC1_Form
 {
     public partial class Form1 : Form
@@ -31,6 +38,10 @@ namespace UC1_Form
         {
             MessageBox.Show(msg, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        private void displayError(string err)
+        {
+            MessageBox.Show(err, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
         private bool validateInput()
         {
@@ -46,7 +57,7 @@ namespace UC1_Form
                 NOTE: For now, it just says "Welcome Alex!" as a placeholder
         /*/
 
-        private void btnMainSubmit_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             string username;
             string password;
@@ -73,8 +84,28 @@ namespace UC1_Form
                     Meanwhile, a supervisor could access the Employee and Equipment management
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
+
+<<<<<<< HEAD
+=======
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database
+            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
+            Such a database could probably set up in Microsoft Access or Notepad
+            /*/
+            {
+                tabMain.Enabled = true;
+                //enable the tabs relating to this user's account; the tabs will be disabled in the final build
+            }
+            else
+            {
+                displayError("Your username and/or password was incorrect");
+                return;
+            }
         }
 
+>>>>>>> refs/remotes/origin/master
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -109,7 +140,12 @@ namespace UC1_Form
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Spreadsheet Files|*.xlsx";
             ofd.Title = "Select a spreadsheet";
+<<<<<<< HEAD
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+=======
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+>>>>>>> refs/remotes/origin/master
                 txtBrowse.Text = ofd.FileName;
             }
             //sends the file name to the 
