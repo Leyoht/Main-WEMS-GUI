@@ -168,5 +168,10 @@ namespace UC1_Form
         {
             throw new System.NotImplementedException();
         }
+
+        public void authenticate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

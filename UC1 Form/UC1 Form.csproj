@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bookkeeper.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Database1DataSet.Designer.cs">
@@ -88,6 +89,7 @@
       <DependentUpon>Inventory Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Jobsite.cs" />
+    <Compile Include="Management.cs" />
     <Compile Include="Paystub.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +98,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="siteSupervisor.cs" />
+    <Compile Include="Verify Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verify Pay.Designer.cs">
+      <DependentUpon>Verify Pay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EEOC Compliance.resx">
       <DependentUpon>EEOC Compliance.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +126,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Verify Pay.resx">
+      <DependentUpon>Verify Pay.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Database1DataSet.xsc">
       <DependentUpon>Database1DataSet.xsd</DependentUpon>
     </None>
