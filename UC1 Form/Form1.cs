@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.2.5, 16-04-2017
+//Build 0.2.6, 17-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -237,6 +238,11 @@ namespace UC1_Form
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             //this will hold a list of all the clients that are looking for and/or holding equipment
+        }
+
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+            new VerifyPayment().Show();
         }
     }
 }
