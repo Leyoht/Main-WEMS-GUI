@@ -30,6 +30,7 @@
         {
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
+            this.btnVerify = new System.Windows.Forms.Button();
             this.btnEditPay = new System.Windows.Forms.Button();
             this.btnSubPay = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -94,10 +95,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-=======
->>>>>>> refs/remotes/origin/tracking-objects
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             this.tabBookkeeper.SuspendLayout();
@@ -122,6 +120,7 @@
             // 
             // tabEmployee
             // 
+            this.tabEmployee.Controls.Add(this.btnVerify);
             this.tabEmployee.Controls.Add(this.btnEditPay);
             this.tabEmployee.Controls.Add(this.btnSubPay);
             this.tabEmployee.Controls.Add(this.label13);
@@ -140,6 +139,16 @@
             this.tabEmployee.TabIndex = 2;
             this.tabEmployee.Text = "Standard Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnVerify
+            // 
+            this.btnVerify.Location = new System.Drawing.Point(323, 24);
+            this.btnVerify.Name = "btnVerify";
+            this.btnVerify.Size = new System.Drawing.Size(98, 23);
+            this.btnVerify.TabIndex = 17;
+            this.btnVerify.Text = "Verify Paystub";
+            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
             // 
             // btnEditPay
             // 
@@ -747,25 +756,14 @@
             // 
             // btnLogin
             // 
-<<<<<<< HEAD
             this.btnLogin.Location = new System.Drawing.Point(540, 116);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(56, 19);
+            this.btnLogin.Size = new System.Drawing.Size(56, 25);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-=======
-            this.btnMainSubmit.Location = new System.Drawing.Point(540, 116);
-            this.btnMainSubmit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMainSubmit.Name = "btnMainSubmit";
-            this.btnMainSubmit.Size = new System.Drawing.Size(56, 19);
-            this.btnMainSubmit.TabIndex = 2;
-            this.btnMainSubmit.Text = "Login";
-            this.btnMainSubmit.UseVisualStyleBackColor = true;
-            this.btnMainSubmit.Click += new System.EventHandler(this.btnMainSubmit_Click);
->>>>>>> refs/remotes/origin/tracking-objects
             // 
             // label1
             // 
@@ -811,25 +809,20 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(540, 139);
+            this.btnExit.Location = new System.Drawing.Point(540, 136);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(56, 19);
+            this.btnExit.Size = new System.Drawing.Size(56, 25);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-<<<<<<< HEAD
-            // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(440, 171);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(156, 23);
             this.progressBar1.TabIndex = 7;
             // 
-=======
->>>>>>> refs/remotes/origin/tracking-objects
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -936,6 +929,7 @@
         private System.Windows.Forms.Button btnEditPay;
         private System.Windows.Forms.Button btnGrant;
         private System.Windows.Forms.Button btnEEOC;
+        private System.Windows.Forms.Button btnVerify;
     }
 }
 

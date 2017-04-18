@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UC_9_GUI; //takes imported code from Matt's GUI
 
-//Build 0.2.4, 16-04-2017
+
+//Build 0.2.6, 17-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -55,10 +57,8 @@ namespace UC1_Form
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username;
-            string password;
-            username = txtUsername.Text;
-            password = txtPassword.Text;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
             if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER"))
             /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
@@ -134,7 +134,8 @@ namespace UC1_Form
             ofd.Filter = "Spreadsheet Files|*.xlsx";
             ofd.Title = "Select a spreadsheet";
 
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
                 txtBrowse.Text = ofd.FileName;
             }
             //sends the file name to the 
@@ -238,6 +239,11 @@ namespace UC1_Form
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             //this will hold a list of all the clients that are looking for and/or holding equipment
+        }
+
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+            new VerifyPayment().Show();
         }
     }
 }
