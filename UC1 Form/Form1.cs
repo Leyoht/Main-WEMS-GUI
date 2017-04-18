@@ -39,6 +39,13 @@ namespace UC1_Form
             MessageBox.Show(err, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private bool validateInput()
+        {
+            //makes sure all the values are filled
+            return false;
+        }
+
+
         //ABOUT THE MAIN FORM
         /*/ The first thing the employee will see is a form that requires them to log in.
             At this point, the tabs are all disabled and will remain that way until the user logs in as an authorized member
@@ -48,6 +55,24 @@ namespace UC1_Form
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string username;
+            string password;
+            username = txtUsername.Text;
+            password = txtPassword.Text;
+
+            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER"))
+            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
+            Such a database could probably set up in Microsoft Access or Notepad
+            /*/
+            {
+                //enable the appropriate tabs, according to the user's credentials
+                //also change the label's text (on the bottom) so that it displays the user's name
+            }
+            else
+            {
+                MessageBox.Show("Username or password was incorrect", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
                 If the username-password combination does not match what we have on file, throw an error at the user
                 If the username-password combination DOES match what we have on file, pull up the first tab that the user qualifies for
@@ -108,8 +133,8 @@ namespace UC1_Form
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Spreadsheet Files|*.xlsx";
             ofd.Title = "Select a spreadsheet";
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
+
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
                 txtBrowse.Text = ofd.FileName;
             }
             //sends the file name to the 

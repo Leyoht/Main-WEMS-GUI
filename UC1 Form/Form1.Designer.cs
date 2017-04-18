@@ -94,7 +94,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+=======
+>>>>>>> refs/remotes/origin/tracking-objects
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             this.tabBookkeeper.SuspendLayout();
@@ -744,6 +747,7 @@
             // 
             // btnLogin
             // 
+<<<<<<< HEAD
             this.btnLogin.Location = new System.Drawing.Point(540, 116);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
@@ -752,6 +756,16 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+=======
+            this.btnMainSubmit.Location = new System.Drawing.Point(540, 116);
+            this.btnMainSubmit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMainSubmit.Name = "btnMainSubmit";
+            this.btnMainSubmit.Size = new System.Drawing.Size(56, 19);
+            this.btnMainSubmit.TabIndex = 2;
+            this.btnMainSubmit.Text = "Login";
+            this.btnMainSubmit.UseVisualStyleBackColor = true;
+            this.btnMainSubmit.Click += new System.EventHandler(this.btnMainSubmit_Click);
+>>>>>>> refs/remotes/origin/tracking-objects
             // 
             // label1
             // 
@@ -806,6 +820,7 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+<<<<<<< HEAD
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(440, 171);
@@ -813,6 +828,8 @@
             this.progressBar1.Size = new System.Drawing.Size(156, 23);
             this.progressBar1.TabIndex = 7;
             // 
+=======
+>>>>>>> refs/remotes/origin/tracking-objects
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
