@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.2.6, 17-04-2017
+//Build 0.2.7, 17-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -81,8 +81,6 @@ namespace UC1_Form
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
 
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
 
             if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database
             /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.

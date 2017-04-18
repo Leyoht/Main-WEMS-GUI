@@ -809,7 +809,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(540, 136);
+            this.btnExit.Location = new System.Drawing.Point(540, 141);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(56, 25);
@@ -817,6 +817,8 @@
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(440, 171);
             this.progressBar1.Name = "progressBar1";
