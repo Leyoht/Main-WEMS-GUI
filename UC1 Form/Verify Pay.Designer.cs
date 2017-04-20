@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.txtLast = new System.Windows.Forms.TextBox();
@@ -44,6 +45,15 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnContact = new System.Windows.Forms.Button();
+            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet1 = new UC1_Form.Database1DataSet1();
+            this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
+            this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
+            this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMPLOYEE_CONTRACTTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,18 +68,20 @@
             // 
             // txtFirst
             // 
+            this.txtFirst.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "First_Name", true));
             this.txtFirst.Enabled = false;
             this.txtFirst.Location = new System.Drawing.Point(14, 44);
-            this.txtFirst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFirst.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(61, 20);
             this.txtFirst.TabIndex = 1;
             // 
             // txtLast
             // 
+            this.txtLast.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "Last_Name", true));
             this.txtLast.Enabled = false;
             this.txtLast.Location = new System.Drawing.Point(115, 44);
-            this.txtLast.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLast.Margin = new System.Windows.Forms.Padding(2);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(78, 20);
             this.txtLast.TabIndex = 2;
@@ -99,9 +111,10 @@
             // 
             // txtMI
             // 
+            this.txtMI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "MI", true));
             this.txtMI.Enabled = false;
             this.txtMI.Location = new System.Drawing.Point(82, 44);
-            this.txtMI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMI.Margin = new System.Windows.Forms.Padding(2);
             this.txtMI.Name = "txtMI";
             this.txtMI.Size = new System.Drawing.Size(24, 20);
             this.txtMI.TabIndex = 5;
@@ -109,10 +122,11 @@
             // 
             // lstJobs
             // 
+            this.lstJobs.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Job_Name", true));
             this.lstJobs.Enabled = false;
             this.lstJobs.FormattingEnabled = true;
             this.lstJobs.Location = new System.Drawing.Point(14, 106);
-            this.lstJobs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstJobs.Margin = new System.Windows.Forms.Padding(2);
             this.lstJobs.Name = "lstJobs";
             this.lstJobs.Size = new System.Drawing.Size(134, 82);
             this.lstJobs.TabIndex = 6;
@@ -122,17 +136,18 @@
             this.lstHours.Enabled = false;
             this.lstHours.FormattingEnabled = true;
             this.lstHours.Location = new System.Drawing.Point(174, 106);
-            this.lstHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstHours.Margin = new System.Windows.Forms.Padding(2);
             this.lstHours.Name = "lstHours";
             this.lstHours.Size = new System.Drawing.Size(118, 82);
             this.lstHours.TabIndex = 7;
             // 
             // lstWage
             // 
+            this.lstWage.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Wage", true));
             this.lstWage.Enabled = false;
             this.lstWage.FormattingEnabled = true;
             this.lstWage.Location = new System.Drawing.Point(310, 106);
-            this.lstWage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstWage.Margin = new System.Windows.Forms.Padding(2);
             this.lstWage.Name = "lstWage";
             this.lstWage.Size = new System.Drawing.Size(62, 82);
             this.lstWage.TabIndex = 8;
@@ -170,7 +185,7 @@
             // btnVerify
             // 
             this.btnVerify.Location = new System.Drawing.Point(383, 11);
-            this.btnVerify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVerify.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(67, 24);
             this.btnVerify.TabIndex = 12;
@@ -180,9 +195,10 @@
             // 
             // txtID
             // 
+            this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "Employee_ID", true));
             this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(216, 44);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(128, 20);
             this.txtID.TabIndex = 13;
@@ -207,6 +223,47 @@
             this.btnContact.Text = "Contact Management";
             this.btnContact.UseVisualStyleBackColor = true;
             // 
+            // eMPLOYEEBindingSource
+            // 
+            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
+            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // database1DataSet1
+            // 
+            this.database1DataSet1.DataSetName = "Database1DataSet1";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // eMPLOYEETableAdapter
+            // 
+            this.eMPLOYEETableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CLIENTTableAdapter = null;
+            this.tableAdapterManager.CONTRACTTableAdapter = null;
+            this.tableAdapterManager.EMPLOYEE_CONTRACTTableAdapter = null;
+            this.tableAdapterManager.EMPLOYEE_QUALTableAdapter = null;
+            this.tableAdapterManager.EMPLOYEETableAdapter = this.eMPLOYEETableAdapter;
+            this.tableAdapterManager.EQUIPMENTTableAdapter = null;
+            this.tableAdapterManager.JOBSITETableAdapter = null;
+            this.tableAdapterManager.LINE_ITEMTableAdapter = null;
+            this.tableAdapterManager.PAYCHECKV1TableAdapter = null;
+            this.tableAdapterManager.QUALIFICATIONTableAdapter = null;
+            this.tableAdapterManager.SUPPLIER_EQUIPMENTTableAdapter = null;
+            this.tableAdapterManager.SUPPLIER_ITEMTableAdapter = null;
+            this.tableAdapterManager.SUPPLIERTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // eMPLOYEE_CONTRACTBindingSource
+            // 
+            this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
+            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // eMPLOYEE_CONTRACTTableAdapter
+            // 
+            this.eMPLOYEE_CONTRACTTableAdapter.ClearBeforeFill = true;
+            // 
             // VerifyPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,9 +285,13 @@
             this.Controls.Add(this.txtLast);
             this.Controls.Add(this.txtFirst);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VerifyPayment";
             this.Text = "Verify Payment Data";
+            this.Load += new System.EventHandler(this.VerifyPayment_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,6 +315,12 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnContact;
+        private UC1_Form.Database1DataSet1 database1DataSet1;
+        private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
+        private UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter eMPLOYEETableAdapter;
+        private UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource eMPLOYEE_CONTRACTBindingSource;
+        private UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter eMPLOYEE_CONTRACTTableAdapter;
     }
 }
 

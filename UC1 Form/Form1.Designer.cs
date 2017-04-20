@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
             this.btnVerify = new System.Windows.Forms.Button();
@@ -93,15 +94,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet1 = new UC1_Form.Database1DataSet1();
+            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMPLOYEE_CONTRACTTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter();
+            this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
+            this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
+            this.qUALIFICATIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qUALIFICATIONTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.QUALIFICATIONTableAdapter();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             this.tabBookkeeper.SuspendLayout();
             this.tabEmpSuperv.SuspendLayout();
             this.tabEmpEquip.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -120,7 +132,6 @@
             // 
             // tabEmployee
             // 
-            this.tabEmployee.Controls.Add(this.btnVerify);
             this.tabEmployee.Controls.Add(this.btnEditPay);
             this.tabEmployee.Controls.Add(this.btnSubPay);
             this.tabEmployee.Controls.Add(this.label13);
@@ -142,7 +153,7 @@
             // 
             // btnVerify
             // 
-            this.btnVerify.Location = new System.Drawing.Point(323, 24);
+            this.btnVerify.Location = new System.Drawing.Point(231, 42);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(98, 23);
             this.btnVerify.TabIndex = 17;
@@ -228,6 +239,7 @@
             // 
             // lstActiveProjects
             // 
+            this.lstActiveProjects.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Job_Name", true));
             this.lstActiveProjects.FormattingEnabled = true;
             this.lstActiveProjects.Location = new System.Drawing.Point(6, 24);
             this.lstActiveProjects.Name = "lstActiveProjects";
@@ -255,6 +267,7 @@
             // 
             // tabBookkeeper
             // 
+            this.tabBookkeeper.Controls.Add(this.btnVerify);
             this.tabBookkeeper.Controls.Add(this.btnEEOC);
             this.tabBookkeeper.Controls.Add(this.btnGrant);
             this.tabBookkeeper.Controls.Add(this.btnEdit);
@@ -419,6 +432,7 @@
             // 
             // lstActEmp
             // 
+            this.lstActEmp.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEEBindingSource, "Last_Name", true));
             this.lstActEmp.FormattingEnabled = true;
             this.lstActEmp.Location = new System.Drawing.Point(4, 27);
             this.lstActEmp.Margin = new System.Windows.Forms.Padding(2);
@@ -547,6 +561,7 @@
             // 
             // lstQual
             // 
+            this.lstQual.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUALIFICATIONBindingSource, "Name", true));
             this.lstQual.FormattingEnabled = true;
             this.lstQual.Location = new System.Drawing.Point(279, 22);
             this.lstQual.Name = "lstQual";
@@ -768,7 +783,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(470, 1);
+            this.label1.Location = new System.Drawing.Point(477, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
@@ -795,18 +810,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(508, 222);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Welcome, Alex!";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(540, 136);
@@ -825,6 +828,56 @@
             this.progressBar1.Size = new System.Drawing.Size(156, 23);
             this.progressBar1.TabIndex = 7;
             // 
+            // eMPLOYEE_CONTRACTBindingSource
+            // 
+            this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
+            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // database1DataSet1
+            // 
+            this.database1DataSet1.DataSetName = "Database1DataSet1";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // eMPLOYEEBindingSource
+            // 
+            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
+            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // eMPLOYEE_CONTRACTTableAdapter
+            // 
+            this.eMPLOYEE_CONTRACTTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CLIENTTableAdapter = null;
+            this.tableAdapterManager.CONTRACTTableAdapter = null;
+            this.tableAdapterManager.EMPLOYEE_CONTRACTTableAdapter = this.eMPLOYEE_CONTRACTTableAdapter;
+            this.tableAdapterManager.EMPLOYEE_QUALTableAdapter = null;
+            this.tableAdapterManager.EMPLOYEETableAdapter = this.eMPLOYEETableAdapter;
+            this.tableAdapterManager.EQUIPMENTTableAdapter = null;
+            this.tableAdapterManager.JOBSITETableAdapter = null;
+            this.tableAdapterManager.LINE_ITEMTableAdapter = null;
+            this.tableAdapterManager.PAYCHECKV1TableAdapter = null;
+            this.tableAdapterManager.QUALIFICATIONTableAdapter = null;
+            this.tableAdapterManager.SUPPLIER_EQUIPMENTTableAdapter = null;
+            this.tableAdapterManager.SUPPLIER_ITEMTableAdapter = null;
+            this.tableAdapterManager.SUPPLIERTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // eMPLOYEETableAdapter
+            // 
+            this.eMPLOYEETableAdapter.ClearBeforeFill = true;
+            // 
+            // qUALIFICATIONBindingSource
+            // 
+            this.qUALIFICATIONBindingSource.DataMember = "QUALIFICATION";
+            this.qUALIFICATIONBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // qUALIFICATIONTableAdapter
+            // 
+            this.qUALIFICATIONTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,7 +885,6 @@
             this.ClientSize = new System.Drawing.Size(608, 249);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -857,6 +909,10 @@
             this.tabEmpEquip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,7 +926,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage tabEmpSuperv;
         private System.Windows.Forms.TabPage tabBookkeeper;
         private System.Windows.Forms.TabControl tabMain;
@@ -932,6 +987,14 @@
         private System.Windows.Forms.Button btnGrant;
         private System.Windows.Forms.Button btnEEOC;
         private System.Windows.Forms.Button btnVerify;
+        private Database1DataSet1 database1DataSet1;
+        private System.Windows.Forms.BindingSource eMPLOYEE_CONTRACTBindingSource;
+        private Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter eMPLOYEE_CONTRACTTableAdapter;
+        private Database1DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
+        private Database1DataSet1TableAdapters.EMPLOYEETableAdapter eMPLOYEETableAdapter;
+        private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
+        private System.Windows.Forms.BindingSource qUALIFICATIONBindingSource;
+        private Database1DataSet1TableAdapters.QUALIFICATIONTableAdapter qUALIFICATIONTableAdapter;
     }
 }
 

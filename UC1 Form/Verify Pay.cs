@@ -40,7 +40,20 @@ namespace UC_9_GUI
         private void btnVerify_Click(object sender, EventArgs e)
         {
             //make an "are you sure?" dialog appear first
-            MessageBox.Show("Payment Data Verified","Payment Data Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Are you sure you're ready to submit?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+                MessageBox.Show("Payment Data Verified", "Payment Data Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                return;
+        }
+
+        private void VerifyPayment_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE_CONTRACT' table. You can move, or remove it, as needed.
+            this.eMPLOYEE_CONTRACTTableAdapter.Fill(this.database1DataSet1.EMPLOYEE_CONTRACT);
+            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE' table. You can move, or remove it, as needed.
+            this.eMPLOYEETableAdapter.Fill(this.database1DataSet1.EMPLOYEE);
+
         }
     }
 }
