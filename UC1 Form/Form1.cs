@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3, 20-04-2017
+//Build 0.3.1, 21-04-2017
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -143,7 +143,7 @@ namespace UC1_Form
             {
                 txtBrowse.Text = ofd.FileName;
             }
-            //sends the file name to the 
+            //sends the file name to the textbox
             mFile[mIndex] = txtBrowse.Text;
         }
 

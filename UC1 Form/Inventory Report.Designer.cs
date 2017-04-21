@@ -35,32 +35,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.grpPrint = new System.Windows.Forms.GroupBox();
+            this.btnPYes = new System.Windows.Forms.RadioButton();
+            this.btnPNo = new System.Windows.Forms.RadioButton();
+            this.grpPrint.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstShowInv
             // 
             this.lstShowInv.FormattingEnabled = true;
             this.lstShowInv.Location = new System.Drawing.Point(11, 83);
-            this.lstShowInv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstShowInv.Margin = new System.Windows.Forms.Padding(2);
             this.lstShowInv.Name = "lstShowInv";
             this.lstShowInv.Size = new System.Drawing.Size(253, 160);
             this.lstShowInv.TabIndex = 0;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(108, 266);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrint.Location = new System.Drawing.Point(109, 265);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(56, 19);
             this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = "&Print";
+            this.btnPrint.Text = "&Send";
             this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnPrint.Click += new System.EventHandler(this.btnInvSub_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(108, 289);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Location = new System.Drawing.Point(109, 288);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(56, 19);
             this.btnExit.TabIndex = 2;
@@ -110,11 +114,45 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Quantity";
             // 
+            // grpPrint
+            // 
+            this.grpPrint.Controls.Add(this.btnPNo);
+            this.grpPrint.Controls.Add(this.btnPYes);
+            this.grpPrint.Location = new System.Drawing.Point(11, 251);
+            this.grpPrint.Name = "grpPrint";
+            this.grpPrint.Size = new System.Drawing.Size(97, 57);
+            this.grpPrint.TabIndex = 7;
+            this.grpPrint.TabStop = false;
+            this.grpPrint.Text = "Send to Printer?";
+            // 
+            // btnPYes
+            // 
+            this.btnPYes.AutoSize = true;
+            this.btnPYes.Location = new System.Drawing.Point(3, 16);
+            this.btnPYes.Name = "btnPYes";
+            this.btnPYes.Size = new System.Drawing.Size(43, 17);
+            this.btnPYes.TabIndex = 0;
+            this.btnPYes.TabStop = true;
+            this.btnPYes.Text = "Yes";
+            this.btnPYes.UseVisualStyleBackColor = true;
+            // 
+            // btnPNo
+            // 
+            this.btnPNo.AutoSize = true;
+            this.btnPNo.Location = new System.Drawing.Point(3, 34);
+            this.btnPNo.Name = "btnPNo";
+            this.btnPNo.Size = new System.Drawing.Size(39, 17);
+            this.btnPNo.TabIndex = 1;
+            this.btnPNo.TabStop = true;
+            this.btnPNo.Text = "No";
+            this.btnPNo.UseVisualStyleBackColor = true;
+            // 
             // Inventory_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 318);
+            this.Controls.Add(this.grpPrint);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -122,10 +160,12 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lstShowInv);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Inventory_Report";
             this.Text = "Inventory_Report";
+            this.grpPrint.ResumeLayout(false);
+            this.grpPrint.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +180,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox grpPrint;
+        private System.Windows.Forms.RadioButton btnPNo;
+        private System.Windows.Forms.RadioButton btnPYes;
     }
 }
