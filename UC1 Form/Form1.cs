@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.2.7, 17-04-2017
+//Build 0.3.2, 22-04-2017
+
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -29,6 +30,12 @@ namespace UC1_Form
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'database1DataSet1.QUALIFICATION' table. You can move, or remove it, as needed.
+            this.qUALIFICATIONTableAdapter.Fill(this.database1DataSet1.QUALIFICATION);
+            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE' table. You can move, or remove it, as needed.
+            this.eMPLOYEETableAdapter.Fill(this.database1DataSet1.EMPLOYEE);
+            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE_CONTRACT' table. You can move, or remove it, as needed.
+            this.eMPLOYEE_CONTRACTTableAdapter.Fill(this.database1DataSet1.EMPLOYEE_CONTRACT);
             InitializeComponent();
         }
 
@@ -136,7 +143,7 @@ namespace UC1_Form
             {
                 txtBrowse.Text = ofd.FileName;
             }
-            //sends the file name to the 
+            //sends the file name to the textbox
             mFile[mIndex] = txtBrowse.Text;
         }
 
