@@ -11,6 +11,7 @@ using UC_9_GUI; //takes imported code from Matt's GUI
 
 
 //Build 0.3.2, 22-04-2017
+
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
 /*/
@@ -86,7 +87,6 @@ namespace UC1_Form
                     Meanwhile, a supervisor could access the Employee and Equipment management
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
-
 
 
             if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database

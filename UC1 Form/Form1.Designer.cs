@@ -745,7 +745,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(540, 107);
+            this.btnLogin.Location = new System.Drawing.Point(540, 116);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(56, 25);
@@ -786,7 +786,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(540, 136);
+            this.btnExit.Location = new System.Drawing.Point(540, 141);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(56, 25);

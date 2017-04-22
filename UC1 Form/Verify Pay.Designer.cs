@@ -80,7 +80,7 @@
             // 
             this.txtLast.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "Last_Name", true));
             this.txtLast.Enabled = false;
-            this.txtLast.Location = new System.Drawing.Point(107, 44);
+            this.txtLast.Location = new System.Drawing.Point(115, 44);
             this.txtLast.Margin = new System.Windows.Forms.Padding(2);
             this.txtLast.Name = "txtLast";
             this.txtLast.Size = new System.Drawing.Size(78, 20);
@@ -111,7 +111,8 @@
             // 
             this.txtMI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "MI", true));
             this.txtMI.Enabled = false;
-            this.txtMI.Location = new System.Drawing.Point(79, 44);
+
+            this.txtMI.Location = new System.Drawing.Point(82, 44);
             this.txtMI.Margin = new System.Windows.Forms.Padding(2);
             this.txtMI.Name = "txtMI";
             this.txtMI.Size = new System.Drawing.Size(24, 20);
@@ -122,7 +123,8 @@
             // 
             this.lstHours.Enabled = false;
             this.lstHours.FormattingEnabled = true;
-            this.lstHours.Location = new System.Drawing.Point(140, 107);
+
+            this.lstHours.Location = new System.Drawing.Point(174, 106);
             this.lstHours.Margin = new System.Windows.Forms.Padding(2);
             this.lstHours.Name = "lstHours";
             this.lstHours.Size = new System.Drawing.Size(118, 82);
@@ -133,7 +135,7 @@
             this.lstWage.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Wage", true));
             this.lstWage.Enabled = false;
             this.lstWage.FormattingEnabled = true;
-            this.lstWage.Location = new System.Drawing.Point(262, 107);
+            this.lstWage.Location = new System.Drawing.Point(310, 106);
             this.lstWage.Margin = new System.Windows.Forms.Padding(2);
             this.lstWage.Name = "lstWage";
             this.lstWage.Size = new System.Drawing.Size(62, 82);
@@ -171,7 +173,7 @@
             // 
             // btnVerify
             // 
-            this.btnVerify.Location = new System.Drawing.Point(14, 135);
+            this.btnVerify.Location = new System.Drawing.Point(383, 11);
             this.btnVerify.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(67, 24);
@@ -184,7 +186,7 @@
             // 
             this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "Employee_ID", true));
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(189, 44);
+            this.txtID.Location = new System.Drawing.Point(216, 44);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(128, 20);
@@ -280,7 +282,9 @@
             this.Controls.Add(this.txtLast);
             this.Controls.Add(this.txtFirst);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "VerifyPayment";
             this.Text = "Verify Payment Data";
             this.Load += new System.EventHandler(this.VerifyPayment_Load);
