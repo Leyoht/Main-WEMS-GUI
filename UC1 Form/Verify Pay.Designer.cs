@@ -31,12 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
+            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet1 = new UC1_Form.Database1DataSet1();
             this.txtLast = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMI = new System.Windows.Forms.TextBox();
             this.lstHours = new System.Windows.Forms.ListBox();
             this.lstWage = new System.Windows.Forms.ListBox();
+            this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,9 +47,6 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnContact = new System.Windows.Forms.Button();
-            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet1 = new UC1_Form.Database1DataSet1();
-            this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
             this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
             this.eMPLOYEE_CONTRACTTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter();
@@ -75,6 +75,16 @@
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(61, 20);
             this.txtFirst.TabIndex = 1;
+            // 
+            // eMPLOYEEBindingSource
+            // 
+            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
+            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // database1DataSet1
+            // 
+            this.database1DataSet1.DataSetName = "Database1DataSet1";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtLast
             // 
@@ -111,7 +121,6 @@
             // 
             this.txtMI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "MI", true));
             this.txtMI.Enabled = false;
-
             this.txtMI.Location = new System.Drawing.Point(82, 44);
             this.txtMI.Margin = new System.Windows.Forms.Padding(2);
             this.txtMI.Name = "txtMI";
@@ -123,7 +132,6 @@
             // 
             this.lstHours.Enabled = false;
             this.lstHours.FormattingEnabled = true;
-
             this.lstHours.Location = new System.Drawing.Point(174, 106);
             this.lstHours.Margin = new System.Windows.Forms.Padding(2);
             this.lstHours.Name = "lstHours";
@@ -140,6 +148,11 @@
             this.lstWage.Name = "lstWage";
             this.lstWage.Size = new System.Drawing.Size(62, 82);
             this.lstWage.TabIndex = 8;
+            // 
+            // eMPLOYEE_CONTRACTBindingSource
+            // 
+            this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
+            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database1DataSet1;
             // 
             // label4
             // 
@@ -212,21 +225,6 @@
             this.btnContact.Text = "Contact Management";
             this.btnContact.UseVisualStyleBackColor = true;
             // 
-            // eMPLOYEEBindingSource
-            // 
-            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
-            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
-            // 
-            // database1DataSet1
-            // 
-            this.database1DataSet1.DataSetName = "Database1DataSet1";
-            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // eMPLOYEE_CONTRACTBindingSource
-            // 
-            this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
-            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database1DataSet1;
-            // 
             // eMPLOYEETableAdapter
             // 
             this.eMPLOYEETableAdapter.ClearBeforeFill = true;
@@ -234,6 +232,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CLIENT_EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.CLIENTTableAdapter = null;
             this.tableAdapterManager.CONTRACTTableAdapter = null;
             this.tableAdapterManager.EMPLOYEE_CONTRACTTableAdapter = null;
@@ -265,7 +264,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 212);
+            this.ClientSize = new System.Drawing.Size(468, 212);
             this.Controls.Add(this.cboJobs);
             this.Controls.Add(this.btnContact);
             this.Controls.Add(this.label7);
