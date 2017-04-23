@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
             this.btnEditPay = new System.Windows.Forms.Button();
             this.btnSubPay = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -103,7 +104,6 @@
             this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
             this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
             this.qUALIFICATIONTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.QUALIFICATIONTableAdapter();
-            this.label27 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
@@ -121,6 +121,7 @@
             this.tabMain.Controls.Add(this.tabBookkeeper);
             this.tabMain.Controls.Add(this.tabEmpSuperv);
             this.tabMain.Controls.Add(this.tabEmpEquip);
+            this.tabMain.Enabled = false;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Margin = new System.Windows.Forms.Padding(2);
             this.tabMain.Multiline = true;
@@ -150,6 +151,16 @@
             this.tabEmployee.TabIndex = 2;
             this.tabEmployee.Text = "Standard Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(3, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(127, 20);
+            this.label27.TabIndex = 20;
+            this.label27.Text = "View Credentials";
             // 
             // btnEditPay
             // 
@@ -841,14 +852,17 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CLIENT_EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.CLIENTTableAdapter = null;
+            this.tableAdapterManager.CLOCKTIMETableAdapter = null;
             this.tableAdapterManager.CONTRACTTableAdapter = null;
             this.tableAdapterManager.EMPLOYEE_CONTRACTTableAdapter = this.eMPLOYEE_CONTRACTTableAdapter;
+            this.tableAdapterManager.EMPLOYEE_CREDENTIALSTableAdapter = null;
             this.tableAdapterManager.EMPLOYEE_QUALTableAdapter = null;
             this.tableAdapterManager.EMPLOYEETableAdapter = this.eMPLOYEETableAdapter;
             this.tableAdapterManager.EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.JOBSITETableAdapter = null;
             this.tableAdapterManager.LINE_ITEMTableAdapter = null;
             this.tableAdapterManager.PAYCHECKV1TableAdapter = null;
+            this.tableAdapterManager.PROJECT_QUALTableAdapter = null;
             this.tableAdapterManager.QUALIFICATIONTableAdapter = null;
             this.tableAdapterManager.SUPPLIER_EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.SUPPLIER_ITEMTableAdapter = null;
@@ -862,16 +876,6 @@
             // qUALIFICATIONTableAdapter
             // 
             this.qUALIFICATIONTableAdapter.ClearBeforeFill = true;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(3, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(127, 20);
-            this.label27.TabIndex = 20;
-            this.label27.Text = "View Credentials";
             // 
             // Form1
             // 

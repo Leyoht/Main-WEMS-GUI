@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.4, 22-04-2017
+//Build 0.3.5, 23-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -58,21 +58,34 @@ namespace UC1_Form
         //ABOUT THE MAIN FORM
         /*/ The first thing the employee will see is a form that requires them to log in.
             At this point, the tabs are all disabled and will remain that way until the user logs in as an authorized member
-            Once the user is in, there will be some text along the bottom that says "Welcome, {user name here}!"
-                NOTE: For now, it just says "Welcome Alex!" as a placeholder
+            Once the user is in, there will pop-up that says "Welcome, {user name here}!"
         /*/
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] WHERE [Username] = '" + txtUsername.Text + "' and [Password] = '" + txtPassword.Text + "'", con);
-            DataTable dt = new System.Data.DataTable();
-            sda.Fill(dt);
+            SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
+                 "WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con);
+            SqlDataAdapter ID = new SqlDataAdapter("SELECT E.[Employee_ID] FROM [EMPLOYEE] E INNER JOIN [EMPLOYEE_CREDENTIALS] EC ON E.Employee_ID = EC.Employee_ID" +
+                "WHERE EC.Employee_ID = @Employee_ID", con);
+            DataTable userpass = new System.Data.DataTable();
+            DataTable OLID = new System.Data.DataTable();
+            uspw.Fill(userpass);
+            string empID = ID.ToString();
 
-            if (dt.Rows.Count == 1)
+            if (userpass.Rows.Count == 1) //this means there is ONLY one row within the entire database that has this specific username+password combo
             {
-                displayMessage("Congratulaztionsz, you done it!");
-                //enable the appropriate tabs, according to the user's credentials
-                //also change the label's text (on the bottom) so that it displays the user's name
+                using (con = new SqlConnection(connectionString))
+                using (SqlDataAdapter name = new SqlDataAdapter("SELECT First_Name + ' ' + Last_Name FROM EMPLOYEE WHERE Employee_ID = '" + empID + "'", con))
+                {
+                    DataTable eName = new DataTable();
+                    string empName = name.Fill(eName).ToString();
+                    displayMessage("Welcome, " + empName);
+                    btnLogin.Enabled = false;
+                    txtUsername.Clear();
+                    txtPassword.Clear();
+                    tabMain.Enabled = true;
+                    //enable the appropriate tabs, according to the user's credentials
+                }
             }
             else
             {
