@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.3, 22-04-2017
+//Build 0.3.6, 23-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -22,21 +24,19 @@ namespace UC1_Form
 {
     public partial class Form1 : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dtdkn\Documents\GitHub\WEMS\Main-WEMS-GUI\UC1 Form\Database1.mdf;Integrated Security=True");
+        string connectionString;
+
         public Form1()
         {
             InitializeComponent();
             txtPassword.PasswordChar = '*';
+            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.Database1ConnectionString"].ConnectionString;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'database1DataSet1.QUALIFICATION' table. You can move, or remove it, as needed.
-            this.qUALIFICATIONTableAdapter.Fill(this.database1DataSet1.QUALIFICATION);
-            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE' table. You can move, or remove it, as needed.
-            this.eMPLOYEETableAdapter.Fill(this.database1DataSet1.EMPLOYEE);
-            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE_CONTRACT' table. You can move, or remove it, as needed.
-            this.eMPLOYEE_CONTRACTTableAdapter.Fill(this.database1DataSet1.EMPLOYEE_CONTRACT);
-            InitializeComponent();
+            txtUsername.Focus();
         }
 
         private void displayMessage(string msg)
@@ -58,26 +58,42 @@ namespace UC1_Form
         //ABOUT THE MAIN FORM
         /*/ The first thing the employee will see is a form that requires them to log in.
             At this point, the tabs are all disabled and will remain that way until the user logs in as an authorized member
-            Once the user is in, there will be some text along the bottom that says "Welcome, {user name here}!"
-                NOTE: For now, it just says "Welcome Alex!" as a placeholder
+            Once the user is in, there will pop-up that says "Welcome, {user name here}!"
         /*/
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
+                 "WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con);
+            SqlDataAdapter ID = new SqlDataAdapter("SELECT E.[Employee_ID] FROM [EMPLOYEE] E INNER JOIN [EMPLOYEE_CREDENTIALS] EC ON E.Employee_ID = EC.Employee_ID" +
+                "WHERE EC.Employee_ID = @Employee_ID", con);
+            DataTable userpass = new System.Data.DataTable();
+            DataTable OLID = new System.Data.DataTable();
+            uspw.Fill(userpass);
+            string empID = ID.ToString();
 
-            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER"))
-            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
-            Such a database could probably set up in Microsoft Access or Notepad
-            /*/
+            if (userpass.Rows.Count == 1) //this means there is ONLY one row within the entire database that has this specific username+password combo
             {
-                //enable the appropriate tabs, according to the user's credentials
-                //also change the label's text (on the bottom) so that it displays the user's name
+                using (con = new SqlConnection(connectionString))
+                using (SqlDataAdapter name = new SqlDataAdapter("SELECT First_Name + ' ' + Last_Name FROM EMPLOYEE WHERE Employee_ID = '" + empID + "'", con))
+                {
+                    DataTable eName = new DataTable();
+                    string empName = name.Fill(eName).ToString();
+                    displayMessage("Welcome, " + empName);
+                    btnLogin.Enabled = false;
+                    txtUsername.Clear();
+                    txtUsername.Enabled = false;
+                    txtPassword.Clear();
+                    txtPassword.Enabled = false;
+                    btnLogout.Enabled = true;
+                    tabMain.Enabled = true;
+                    //enable the appropriate tabs, according to the user's credentials
+                }
             }
             else
             {
-                MessageBox.Show("Username or password was incorrect", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                displayError("Your username and/or password was incorrect");
+                txtUsername.Focus();
             }
 
             /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
@@ -87,24 +103,9 @@ namespace UC1_Form
                     Meanwhile, a supervisor could access the Employee and Equipment management
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
-
-
-            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database
-            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
-            Such a database could probably set up in Microsoft Access or Notepad
-            /*/
-            {
-                tabMain.Enabled = true;
-                //enable the tabs relating to this user's account; the tabs will be disabled in the final build
-            }
-            else
-            {
-                displayError("Your username and/or password was incorrect");
-                return;
-            }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -162,6 +163,7 @@ namespace UC1_Form
 
         private void lstReports_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnEditPay.Enabled = true;
             /*/ This area will be populated with links to PDF time reports once the employee logs in
                 The most recent time report will be shown at the top of the list
                 Downloading a PDF is as simple as double-clicking one of the listed items
@@ -208,6 +210,11 @@ namespace UC1_Form
 
         private void cmbAssProj_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstQualEmp.Enabled = true;
+            lstQual.Enabled = true;
+            lstCurrentAss.Enabled = true;
+            btnMoveEmp.Enabled = true;
+            btnSubChange.Enabled = true;
             //Will populate with the user's assigned projects once they're logged in
         }
 
@@ -243,12 +250,26 @@ namespace UC1_Form
 
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstOpenEquip.Enabled = true;
+            lstNewEquip.Enabled = true;
+            btnMoveEquip.Enabled = true;
+            btnInvSub.Enabled = true;
             //this will hold a list of all the clients that are looking for and/or holding equipment
         }
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
             new VerifyPayment().Show();
+        }
+
+        private void cboActEmp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnVerify.Enabled = true;
+            btnEEOC.Enabled = true;
+            btnGrant.Enabled = true;
+            btnValid.Enabled = true;
+            btnEdit.Enabled = true;
+            lstHours.Enabled = true;
         }
     }
 }

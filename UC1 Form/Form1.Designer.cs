@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
             this.btnEditPay = new System.Windows.Forms.Button();
             this.btnSubPay = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lstReports = new System.Windows.Forms.ListBox();
             this.tabBookkeeper = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cboActEmp = new System.Windows.Forms.ComboBox();
             this.btnVerify = new System.Windows.Forms.Button();
             this.btnEEOC = new System.Windows.Forms.Button();
             this.btnGrant = new System.Windows.Forms.Button();
@@ -60,8 +63,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabEmpSuperv = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnSubChange = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.btnMoveEmp = new System.Windows.Forms.Button();
@@ -88,30 +91,27 @@
             this.cmbCondition = new System.Windows.Forms.ComboBox();
             this.lstOpenEquip = new System.Windows.Forms.ListBox();
             this.lstNewEquip = new System.Windows.Forms.ListBox();
+            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.eMPLOYEE_CONTRACTTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter();
             this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
             this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
             this.qUALIFICATIONTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.QUALIFICATIONTableAdapter();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cboActEmp = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
             this.tabBookkeeper.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
             this.tabEmpSuperv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).BeginInit();
             this.tabEmpEquip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -120,6 +120,7 @@
             this.tabMain.Controls.Add(this.tabBookkeeper);
             this.tabMain.Controls.Add(this.tabEmpSuperv);
             this.tabMain.Controls.Add(this.tabEmpEquip);
+            this.tabMain.Enabled = false;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Margin = new System.Windows.Forms.Padding(2);
             this.tabMain.Multiline = true;
@@ -130,6 +131,7 @@
             // 
             // tabEmployee
             // 
+            this.tabEmployee.Controls.Add(this.label27);
             this.tabEmployee.Controls.Add(this.btnEditPay);
             this.tabEmployee.Controls.Add(this.btnSubPay);
             this.tabEmployee.Controls.Add(this.label13);
@@ -148,6 +150,16 @@
             this.tabEmployee.TabIndex = 2;
             this.tabEmployee.Text = "Standard Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(3, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(127, 20);
+            this.label27.TabIndex = 20;
+            this.label27.Text = "View Credentials";
             // 
             // btnEditPay
             // 
@@ -219,7 +231,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 8);
+            this.label6.Location = new System.Drawing.Point(0, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 7;
@@ -229,9 +241,9 @@
             // 
             this.lstActiveProjects.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Job_Name", true));
             this.lstActiveProjects.FormattingEnabled = true;
-            this.lstActiveProjects.Location = new System.Drawing.Point(6, 24);
+            this.lstActiveProjects.Location = new System.Drawing.Point(3, 50);
             this.lstActiveProjects.Name = "lstActiveProjects";
-            this.lstActiveProjects.Size = new System.Drawing.Size(156, 95);
+            this.lstActiveProjects.Size = new System.Drawing.Size(156, 69);
             this.lstActiveProjects.TabIndex = 6;
             this.lstActiveProjects.SelectedIndexChanged += new System.EventHandler(this.lstActiveProjects_SelectedIndexChanged);
             // 
@@ -248,7 +260,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 136);
+            this.label5.Location = new System.Drawing.Point(0, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 13);
             this.label5.TabIndex = 2;
@@ -291,8 +303,30 @@
             this.tabBookkeeper.Text = "Bookkeeper";
             this.tabBookkeeper.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(117, 20);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Pay Employees";
+            // 
+            // cboActEmp
+            // 
+            this.cboActEmp.FormattingEnabled = true;
+            this.cboActEmp.Items.AddRange(new object[] {
+            "Example"});
+            this.cboActEmp.Location = new System.Drawing.Point(5, 73);
+            this.cboActEmp.Name = "cboActEmp";
+            this.cboActEmp.Size = new System.Drawing.Size(121, 21);
+            this.cboActEmp.TabIndex = 18;
+            this.cboActEmp.SelectedIndexChanged += new System.EventHandler(this.cboActEmp_SelectedIndexChanged);
+            // 
             // btnVerify
             // 
+            this.btnVerify.Enabled = false;
             this.btnVerify.Location = new System.Drawing.Point(322, 28);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(98, 23);
@@ -313,6 +347,7 @@
             // 
             // btnGrant
             // 
+            this.btnGrant.Enabled = false;
             this.btnGrant.Location = new System.Drawing.Point(298, 85);
             this.btnGrant.Margin = new System.Windows.Forms.Padding(2);
             this.btnGrant.Name = "btnGrant";
@@ -323,6 +358,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Enabled = false;
             this.btnEdit.Location = new System.Drawing.Point(365, 202);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
@@ -333,6 +369,7 @@
             // 
             // btnValid
             // 
+            this.btnValid.Enabled = false;
             this.btnValid.Location = new System.Drawing.Point(365, 178);
             this.btnValid.Margin = new System.Windows.Forms.Padding(2);
             this.btnValid.Name = "btnValid";
@@ -402,6 +439,7 @@
             // 
             // lstHours
             // 
+            this.lstHours.Enabled = false;
             this.lstHours.FormattingEnabled = true;
             this.lstHours.Location = new System.Drawing.Point(4, 127);
             this.lstHours.Margin = new System.Windows.Forms.Padding(2);
@@ -439,11 +477,6 @@
             this.label19.TabIndex = 1;
             this.label19.Text = "Select Employee";
             // 
-            // eMPLOYEEBindingSource
-            // 
-            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
-            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
-            // 
             // tabEmpSuperv
             // 
             this.tabEmpSuperv.Controls.Add(this.label14);
@@ -468,8 +501,19 @@
             this.tabEmpSuperv.Text = "Employee Management";
             this.tabEmpSuperv.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(202, 20);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Assign Employee to Project";
+            // 
             // btnSubChange
             // 
+            this.btnSubChange.Enabled = false;
             this.btnSubChange.Location = new System.Drawing.Point(325, 197);
             this.btnSubChange.Name = "btnSubChange";
             this.btnSubChange.Size = new System.Drawing.Size(94, 23);
@@ -489,6 +533,7 @@
             // 
             // btnMoveEmp
             // 
+            this.btnMoveEmp.Enabled = false;
             this.btnMoveEmp.Location = new System.Drawing.Point(178, 134);
             this.btnMoveEmp.Name = "btnMoveEmp";
             this.btnMoveEmp.Size = new System.Drawing.Size(63, 23);
@@ -499,6 +544,7 @@
             // 
             // lstCurrentAss
             // 
+            this.lstCurrentAss.Enabled = false;
             this.lstCurrentAss.FormattingEnabled = true;
             this.lstCurrentAss.Location = new System.Drawing.Point(247, 125);
             this.lstCurrentAss.Name = "lstCurrentAss";
@@ -544,6 +590,7 @@
             // lstQual
             // 
             this.lstQual.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUALIFICATIONBindingSource, "Name", true));
+            this.lstQual.Enabled = false;
             this.lstQual.FormattingEnabled = true;
             this.lstQual.Location = new System.Drawing.Point(289, 24);
             this.lstQual.Name = "lstQual";
@@ -568,6 +615,8 @@
             // cmbAssProj
             // 
             this.cmbAssProj.FormattingEnabled = true;
+            this.cmbAssProj.Items.AddRange(new object[] {
+            "Example"});
             this.cmbAssProj.Location = new System.Drawing.Point(0, 38);
             this.cmbAssProj.Name = "cmbAssProj";
             this.cmbAssProj.Size = new System.Drawing.Size(159, 21);
@@ -576,6 +625,7 @@
             // 
             // lstQualEmp
             // 
+            this.lstQualEmp.Enabled = false;
             this.lstQualEmp.FormattingEnabled = true;
             this.lstQualEmp.Items.AddRange(new object[] {
             "Matthew Camino",
@@ -643,6 +693,8 @@
             // cmbClient
             // 
             this.cmbClient.FormattingEnabled = true;
+            this.cmbClient.Items.AddRange(new object[] {
+            "Example"});
             this.cmbClient.Location = new System.Drawing.Point(300, 154);
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(121, 21);
@@ -651,6 +703,7 @@
             // 
             // btnInvSub
             // 
+            this.btnInvSub.Enabled = false;
             this.btnInvSub.Location = new System.Drawing.Point(296, 196);
             this.btnInvSub.Margin = new System.Windows.Forms.Padding(2);
             this.btnInvSub.Name = "btnInvSub";
@@ -680,6 +733,7 @@
             // 
             // btnMoveEquip
             // 
+            this.btnMoveEquip.Enabled = false;
             this.btnMoveEquip.Location = new System.Drawing.Point(134, 138);
             this.btnMoveEquip.Name = "btnMoveEquip";
             this.btnMoveEquip.Size = new System.Drawing.Size(32, 23);
@@ -713,6 +767,7 @@
             // 
             // lstOpenEquip
             // 
+            this.lstOpenEquip.Enabled = false;
             this.lstOpenEquip.FormattingEnabled = true;
             this.lstOpenEquip.Location = new System.Drawing.Point(8, 86);
             this.lstOpenEquip.Name = "lstOpenEquip";
@@ -721,11 +776,17 @@
             // 
             // lstNewEquip
             // 
+            this.lstNewEquip.Enabled = false;
             this.lstNewEquip.FormattingEnabled = true;
             this.lstNewEquip.Location = new System.Drawing.Point(172, 86);
             this.lstNewEquip.Name = "lstNewEquip";
             this.lstNewEquip.Size = new System.Drawing.Size(120, 134);
             this.lstNewEquip.TabIndex = 0;
+            // 
+            // eMPLOYEEBindingSource
+            // 
+            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
+            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
             // 
             // txtUsername
             // 
@@ -784,23 +845,17 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
-            // btnExit
+            // btnLogout
             // 
-            this.btnExit.Location = new System.Drawing.Point(540, 141);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(56, 25);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(440, 171);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(156, 23);
-            this.progressBar1.TabIndex = 7;
+            this.btnLogout.Enabled = false;
+            this.btnLogout.Location = new System.Drawing.Point(540, 141);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(56, 25);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // eMPLOYEE_CONTRACTTableAdapter
             // 
@@ -809,15 +864,19 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CLIENT_EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.CLIENTTableAdapter = null;
+            this.tableAdapterManager.CLOCKTIMETableAdapter = null;
             this.tableAdapterManager.CONTRACTTableAdapter = null;
             this.tableAdapterManager.EMPLOYEE_CONTRACTTableAdapter = this.eMPLOYEE_CONTRACTTableAdapter;
+            this.tableAdapterManager.EMPLOYEE_CREDENTIALSTableAdapter = null;
             this.tableAdapterManager.EMPLOYEE_QUALTableAdapter = null;
             this.tableAdapterManager.EMPLOYEETableAdapter = this.eMPLOYEETableAdapter;
             this.tableAdapterManager.EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.JOBSITETableAdapter = null;
             this.tableAdapterManager.LINE_ITEMTableAdapter = null;
             this.tableAdapterManager.PAYCHECKV1TableAdapter = null;
+            this.tableAdapterManager.PROJECT_QUALTableAdapter = null;
             this.tableAdapterManager.QUALIFICATIONTableAdapter = null;
             this.tableAdapterManager.SUPPLIER_EQUIPMENTTableAdapter = null;
             this.tableAdapterManager.SUPPLIER_ITEMTableAdapter = null;
@@ -832,41 +891,12 @@
             // 
             this.qUALIFICATIONTableAdapter.ClearBeforeFill = true;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(202, 20);
-            this.label14.TabIndex = 16;
-            this.label14.Text = "Assign Employee to Project";
-            // 
-            // cboActEmp
-            // 
-            this.cboActEmp.FormattingEnabled = true;
-            this.cboActEmp.Location = new System.Drawing.Point(5, 73);
-            this.cboActEmp.Name = "cboActEmp";
-            this.cboActEmp.Size = new System.Drawing.Size(121, 21);
-            this.cboActEmp.TabIndex = 18;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 20);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "Pay Employees";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 249);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.btnExit);
+            this.ClientSize = new System.Drawing.Size(608, 248);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -887,12 +917,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
             this.tabBookkeeper.ResumeLayout(false);
             this.tabBookkeeper.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
             this.tabEmpSuperv.ResumeLayout(false);
             this.tabEmpSuperv.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).EndInit();
             this.tabEmpEquip.ResumeLayout(false);
             this.tabEmpEquip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -939,11 +969,10 @@
         private System.Windows.Forms.ComboBox cmbCondition;
         private System.Windows.Forms.ListBox lstOpenEquip;
         private System.Windows.Forms.ListBox lstNewEquip;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnInvSub;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbClient;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnSubPay;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnValid;
@@ -974,6 +1003,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cboActEmp;
+        private System.Windows.Forms.Label label27;
     }
 }
 
