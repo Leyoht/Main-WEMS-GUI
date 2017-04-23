@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.3, 22-04-2017
+//Build 0.3.4, 22-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -22,21 +24,19 @@ namespace UC1_Form
 {
     public partial class Form1 : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dtdkn\Documents\GitHub\WEMS\Main-WEMS-GUI\UC1 Form\Database1.mdf;Integrated Security=True");
+        string connectionString;
+
         public Form1()
         {
             InitializeComponent();
             txtPassword.PasswordChar = '*';
+            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.Database1ConnectionString"].ConnectionString;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'database1DataSet1.QUALIFICATION' table. You can move, or remove it, as needed.
-            this.qUALIFICATIONTableAdapter.Fill(this.database1DataSet1.QUALIFICATION);
-            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE' table. You can move, or remove it, as needed.
-            this.eMPLOYEETableAdapter.Fill(this.database1DataSet1.EMPLOYEE);
-            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE_CONTRACT' table. You can move, or remove it, as needed.
-            this.eMPLOYEE_CONTRACTTableAdapter.Fill(this.database1DataSet1.EMPLOYEE_CONTRACT);
-            InitializeComponent();
+
         }
 
         private void displayMessage(string msg)
@@ -64,20 +64,19 @@ namespace UC1_Form
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] WHERE [Username] = '" + txtUsername.Text + "' and [Password] = '" + txtPassword.Text + "'", con);
+            DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
 
-            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER"))
-            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
-            Such a database could probably set up in Microsoft Access or Notepad
-            /*/
+            if (dt.Rows.Count == 1)
             {
+                displayMessage("Congratulaztionsz, you done it!");
                 //enable the appropriate tabs, according to the user's credentials
                 //also change the label's text (on the bottom) so that it displays the user's name
             }
             else
             {
-                MessageBox.Show("Username or password was incorrect", Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                displayError("Your username and/or password was incorrect");
             }
 
             /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
@@ -87,21 +86,6 @@ namespace UC1_Form
                     Meanwhile, a supervisor could access the Employee and Equipment management
                     If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
             /*/
-
-
-            if (txtUsername.Text.ToUpper().Equals("OWNER") && txtPassword.Text.ToUpper().Equals("OWNER")) //username and password should tie back to an array that works with the SQL database
-            /*/ The txtUsername and txtPassword requirements could be changed later on, according to the pseudo-database we set up for our users.
-            Such a database could probably set up in Microsoft Access or Notepad
-            /*/
-            {
-                tabMain.Enabled = true;
-                //enable the tabs relating to this user's account; the tabs will be disabled in the final build
-            }
-            else
-            {
-                displayError("Your username and/or password was incorrect");
-                return;
-            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
