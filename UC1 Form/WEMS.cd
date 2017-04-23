@@ -19,7 +19,7 @@
   <Class Name="UC1_Form.Employee">
     <Position X="6.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAYBEIAgCAAAIoAAAAAICAgAAAAgACBAAARA=</HashCode>
+      <HashCode>ACABAgoAIaBmIAwSAAAIoAAggAIiBkIAAAoAClABARI=</HashCode>
       <FileName>Employee.cs</FileName>
       <NewMemberFileName>EMPLOYEE.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -47,11 +47,12 @@
     </TypeIdentifier>
   </Class>
   <Class Name="UC1_Form.Bookkeeper">
-    <Position X="0.5" Y="2.75" Width="2" />
+    <Position X="0.5" Y="3" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEIEAA=</HashCode>
+      <HashCode>QEAAAAAAAAAAAAAAAIAIAAAAAAgAAAARAAEAAAEIEAA=</HashCode>
       <FileName>Bookkeeper.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

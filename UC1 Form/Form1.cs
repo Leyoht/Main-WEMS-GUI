@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.7, 23-04-2017
+//Build 0.3.8, 23-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -24,6 +24,38 @@ namespace UC1_Form
 {
     public partial class Form1 : Form
     {
+
+        public void testLists() //sends a test-run of test to the login script once the employee has logged in, ensuring the listboxes are functional
+        {
+            lstActiveProjects.Items.Add("Superior Landing, Project #7730909");
+            lstActiveProjects.Items.Add("Maylan Hotel, Project #7729998");
+            lstActiveProjects.Items.Add("Marquee Moon Dev., Project #");
+
+            lstReports.Items.Add("Employee: Alex Reynaud      Week of 3/27 Logged Hours: 22.38       Wage Rate: 9.50/hr        Current Total: $212.61");
+            lstReports.Items.Add("Employee: Alex Reynaud      Week of 4/3 Logged Hours: 37.00       Wage Rate: 9.50/hr        Current Total: $351.50");
+            lstReports.Items.Add("Employee: Alex Reynaud      Week of 4/10 Logged Hours: 35.00       Wage Rate: 9.50/hr        Current Total: $332.50");
+
+            lstProjectBids.Items.Add("Decatur County Courhouse Masonry Repairs          Valuation: $199,000        Location: Decatur, IN         Bid Date: May 1, 2017");
+            lstProjectBids.Items.Add("Mendards Warehouse (Addition)                     Valuation: $2,999,999      Location: Allen, IN           Bid Date: June 12, 2017");
+            lstProjectBids.Items.Add("Whihala Beach Conecession Bldg                    Valuation: $749,999        Location: Lake, IN            Bid Date: July 9, 2017");
+
+            /*/for (int i = 0; i < lstActiveProjects.Items.Count; i++)
+            {
+                lstActiveProjects.Items.Add(...);
+            }
+
+            for (int i = 0; i < lstReports.Items.Count; i++)
+            {
+                lstReports.Items.Add(...);
+            }
+
+            for (int i = 0; i < lstProjectBids.Items.Count; i++)
+            {
+                lstProjectBids.Items.Add(...);
+            }/*/
+        }
+
+
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\dtdkn\Documents\GitHub\WEMS\Main-WEMS-GUI\UC1 Form\Database1.mdf;Integrated Security=True");
         string connectionString;
 
@@ -72,15 +104,15 @@ namespace UC1_Form
             DataTable userpass = new System.Data.DataTable();
             DataTable OLID = new System.Data.DataTable();
             uspw.Fill(userpass);
-            string empID = ID.ToString();
-            /*/
+            string empID = ID.ToString();/*/
+            
 
             if (/*/userpass.Rows.Count == 1 || /*/userLocal == "TESTMAN" && passLocal == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
             {
                 /*/using (con = new SqlConnection(connectionString))
                 using (SqlDataAdapter name = new SqlDataAdapter("SELECT First_Name + ' ' + Last_Name FROM EMPLOYEE WHERE Employee_ID = '" + empID + "'", con))
-                {
-                    DataTable eName = new DataTable();
+                {/*/
+                    /*/DataTable eName = new DataTable();
                     string empName = name.Fill(eName).ToString();
                     displayMessage("Welcome, " + empName);/*/
                     btnLogin.Enabled = false;
@@ -90,8 +122,9 @@ namespace UC1_Form
                     txtPassword.Enabled = false;
                     btnLogout.Enabled = true;
                     tabMain.Enabled = true;
-                    //enable the appropriate tabs, according to the user's credentials
-                //}
+                    testLists(); //populates the forms on the "Standard Employee" tab once the user has logged in
+                    /*/enable the appropriate tabs, according to the user's credentials
+                }/*/
             }
             else
             {
