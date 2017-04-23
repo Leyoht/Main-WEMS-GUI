@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.5, 23-04-2017
+//Build 0.3.6, 23-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -36,7 +36,7 @@ namespace UC1_Form
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            txtUsername.Focus();
         }
 
         private void displayMessage(string msg)
@@ -82,7 +82,10 @@ namespace UC1_Form
                     displayMessage("Welcome, " + empName);
                     btnLogin.Enabled = false;
                     txtUsername.Clear();
+                    txtUsername.Enabled = false;
                     txtPassword.Clear();
+                    txtPassword.Enabled = false;
+                    btnLogout.Enabled = true;
                     tabMain.Enabled = true;
                     //enable the appropriate tabs, according to the user's credentials
                 }
@@ -90,6 +93,7 @@ namespace UC1_Form
             else
             {
                 displayError("Your username and/or password was incorrect");
+                txtUsername.Focus();
             }
 
             /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
@@ -101,7 +105,7 @@ namespace UC1_Form
             /*/
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -159,6 +163,7 @@ namespace UC1_Form
 
         private void lstReports_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnEditPay.Enabled = true;
             /*/ This area will be populated with links to PDF time reports once the employee logs in
                 The most recent time report will be shown at the top of the list
                 Downloading a PDF is as simple as double-clicking one of the listed items
@@ -205,6 +210,11 @@ namespace UC1_Form
 
         private void cmbAssProj_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstQualEmp.Enabled = true;
+            lstQual.Enabled = true;
+            lstCurrentAss.Enabled = true;
+            btnMoveEmp.Enabled = true;
+            btnSubChange.Enabled = true;
             //Will populate with the user's assigned projects once they're logged in
         }
 
@@ -240,12 +250,26 @@ namespace UC1_Form
 
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lstOpenEquip.Enabled = true;
+            lstNewEquip.Enabled = true;
+            btnMoveEquip.Enabled = true;
+            btnInvSub.Enabled = true;
             //this will hold a list of all the clients that are looking for and/or holding equipment
         }
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
             new VerifyPayment().Show();
+        }
+
+        private void cboActEmp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnVerify.Enabled = true;
+            btnEEOC.Enabled = true;
+            btnGrant.Enabled = true;
+            btnValid.Enabled = true;
+            btnEdit.Enabled = true;
+            lstHours.Enabled = true;
         }
     }
 }

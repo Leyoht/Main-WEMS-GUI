@@ -98,8 +98,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.eMPLOYEE_CONTRACTTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter();
             this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
             this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
@@ -317,13 +316,17 @@
             // cboActEmp
             // 
             this.cboActEmp.FormattingEnabled = true;
+            this.cboActEmp.Items.AddRange(new object[] {
+            "Example"});
             this.cboActEmp.Location = new System.Drawing.Point(5, 73);
             this.cboActEmp.Name = "cboActEmp";
             this.cboActEmp.Size = new System.Drawing.Size(121, 21);
             this.cboActEmp.TabIndex = 18;
+            this.cboActEmp.SelectedIndexChanged += new System.EventHandler(this.cboActEmp_SelectedIndexChanged);
             // 
             // btnVerify
             // 
+            this.btnVerify.Enabled = false;
             this.btnVerify.Location = new System.Drawing.Point(322, 28);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(98, 23);
@@ -344,6 +347,7 @@
             // 
             // btnGrant
             // 
+            this.btnGrant.Enabled = false;
             this.btnGrant.Location = new System.Drawing.Point(298, 85);
             this.btnGrant.Margin = new System.Windows.Forms.Padding(2);
             this.btnGrant.Name = "btnGrant";
@@ -354,6 +358,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Enabled = false;
             this.btnEdit.Location = new System.Drawing.Point(365, 202);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
@@ -364,6 +369,7 @@
             // 
             // btnValid
             // 
+            this.btnValid.Enabled = false;
             this.btnValid.Location = new System.Drawing.Point(365, 178);
             this.btnValid.Margin = new System.Windows.Forms.Padding(2);
             this.btnValid.Name = "btnValid";
@@ -433,6 +439,7 @@
             // 
             // lstHours
             // 
+            this.lstHours.Enabled = false;
             this.lstHours.FormattingEnabled = true;
             this.lstHours.Location = new System.Drawing.Point(4, 127);
             this.lstHours.Margin = new System.Windows.Forms.Padding(2);
@@ -506,6 +513,7 @@
             // 
             // btnSubChange
             // 
+            this.btnSubChange.Enabled = false;
             this.btnSubChange.Location = new System.Drawing.Point(325, 197);
             this.btnSubChange.Name = "btnSubChange";
             this.btnSubChange.Size = new System.Drawing.Size(94, 23);
@@ -525,6 +533,7 @@
             // 
             // btnMoveEmp
             // 
+            this.btnMoveEmp.Enabled = false;
             this.btnMoveEmp.Location = new System.Drawing.Point(178, 134);
             this.btnMoveEmp.Name = "btnMoveEmp";
             this.btnMoveEmp.Size = new System.Drawing.Size(63, 23);
@@ -535,6 +544,7 @@
             // 
             // lstCurrentAss
             // 
+            this.lstCurrentAss.Enabled = false;
             this.lstCurrentAss.FormattingEnabled = true;
             this.lstCurrentAss.Location = new System.Drawing.Point(247, 125);
             this.lstCurrentAss.Name = "lstCurrentAss";
@@ -580,6 +590,7 @@
             // lstQual
             // 
             this.lstQual.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUALIFICATIONBindingSource, "Name", true));
+            this.lstQual.Enabled = false;
             this.lstQual.FormattingEnabled = true;
             this.lstQual.Location = new System.Drawing.Point(289, 24);
             this.lstQual.Name = "lstQual";
@@ -604,6 +615,8 @@
             // cmbAssProj
             // 
             this.cmbAssProj.FormattingEnabled = true;
+            this.cmbAssProj.Items.AddRange(new object[] {
+            "Example"});
             this.cmbAssProj.Location = new System.Drawing.Point(0, 38);
             this.cmbAssProj.Name = "cmbAssProj";
             this.cmbAssProj.Size = new System.Drawing.Size(159, 21);
@@ -612,6 +625,7 @@
             // 
             // lstQualEmp
             // 
+            this.lstQualEmp.Enabled = false;
             this.lstQualEmp.FormattingEnabled = true;
             this.lstQualEmp.Items.AddRange(new object[] {
             "Matthew Camino",
@@ -679,6 +693,8 @@
             // cmbClient
             // 
             this.cmbClient.FormattingEnabled = true;
+            this.cmbClient.Items.AddRange(new object[] {
+            "Example"});
             this.cmbClient.Location = new System.Drawing.Point(300, 154);
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(121, 21);
@@ -687,6 +703,7 @@
             // 
             // btnInvSub
             // 
+            this.btnInvSub.Enabled = false;
             this.btnInvSub.Location = new System.Drawing.Point(296, 196);
             this.btnInvSub.Margin = new System.Windows.Forms.Padding(2);
             this.btnInvSub.Name = "btnInvSub";
@@ -716,6 +733,7 @@
             // 
             // btnMoveEquip
             // 
+            this.btnMoveEquip.Enabled = false;
             this.btnMoveEquip.Location = new System.Drawing.Point(134, 138);
             this.btnMoveEquip.Name = "btnMoveEquip";
             this.btnMoveEquip.Size = new System.Drawing.Size(32, 23);
@@ -749,6 +767,7 @@
             // 
             // lstOpenEquip
             // 
+            this.lstOpenEquip.Enabled = false;
             this.lstOpenEquip.FormattingEnabled = true;
             this.lstOpenEquip.Location = new System.Drawing.Point(8, 86);
             this.lstOpenEquip.Name = "lstOpenEquip";
@@ -757,6 +776,7 @@
             // 
             // lstNewEquip
             // 
+            this.lstNewEquip.Enabled = false;
             this.lstNewEquip.FormattingEnabled = true;
             this.lstNewEquip.Location = new System.Drawing.Point(172, 86);
             this.lstNewEquip.Name = "lstNewEquip";
@@ -825,23 +845,17 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Password";
             // 
-            // btnExit
+            // btnLogout
             // 
-            this.btnExit.Location = new System.Drawing.Point(540, 141);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(56, 25);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(440, 171);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(156, 23);
-            this.progressBar1.TabIndex = 7;
+            this.btnLogout.Enabled = false;
+            this.btnLogout.Location = new System.Drawing.Point(540, 141);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(56, 25);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // eMPLOYEE_CONTRACTTableAdapter
             // 
@@ -882,8 +896,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 248);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -956,11 +969,10 @@
         private System.Windows.Forms.ComboBox cmbCondition;
         private System.Windows.Forms.ListBox lstOpenEquip;
         private System.Windows.Forms.ListBox lstNewEquip;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnInvSub;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbClient;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnSubPay;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnValid;
