@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.6, 23-04-2017
+//Build 0.3.7, 23-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -63,7 +63,9 @@ namespace UC1_Form
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
+            string userLocal = txtUsername.Text;
+            string passLocal = txtPassword.Text;
+            /*/SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
                  "WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con);
             SqlDataAdapter ID = new SqlDataAdapter("SELECT E.[Employee_ID] FROM [EMPLOYEE] E INNER JOIN [EMPLOYEE_CREDENTIALS] EC ON E.Employee_ID = EC.Employee_ID" +
                 "WHERE EC.Employee_ID = @Employee_ID", con);
@@ -71,15 +73,16 @@ namespace UC1_Form
             DataTable OLID = new System.Data.DataTable();
             uspw.Fill(userpass);
             string empID = ID.ToString();
+            /*/
 
-            if (userpass.Rows.Count == 1) //this means there is ONLY one row within the entire database that has this specific username+password combo
+            if (/*/userpass.Rows.Count == 1 || /*/userLocal == "TESTMAN" && passLocal == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
             {
-                using (con = new SqlConnection(connectionString))
+                /*/using (con = new SqlConnection(connectionString))
                 using (SqlDataAdapter name = new SqlDataAdapter("SELECT First_Name + ' ' + Last_Name FROM EMPLOYEE WHERE Employee_ID = '" + empID + "'", con))
                 {
                     DataTable eName = new DataTable();
                     string empName = name.Fill(eName).ToString();
-                    displayMessage("Welcome, " + empName);
+                    displayMessage("Welcome, " + empName);/*/
                     btnLogin.Enabled = false;
                     txtUsername.Clear();
                     txtUsername.Enabled = false;
@@ -88,7 +91,7 @@ namespace UC1_Form
                     btnLogout.Enabled = true;
                     tabMain.Enabled = true;
                     //enable the appropriate tabs, according to the user's credentials
-                }
+                //}
             }
             else
             {

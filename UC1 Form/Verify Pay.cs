@@ -39,10 +39,6 @@ namespace UC_9_GUI
 
         private void VerifyPayment_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE_CONTRACT' table. You can move, or remove it, as needed.
-            this.eMPLOYEE_CONTRACTTableAdapter.Fill(this.database1DataSet1.EMPLOYEE_CONTRACT);
-            // TODO: This line of code loads data into the 'database1DataSet1.EMPLOYEE' table. You can move, or remove it, as needed.
-            this.eMPLOYEETableAdapter.Fill(this.database1DataSet1.EMPLOYEE);
 
         }
     }
