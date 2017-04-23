@@ -30,6 +30,18 @@ namespace UC1_Form
         private void Form1_Load(object sender, EventArgs e)
         {
             InitializeComponent();
+
+            lstActiveProjects.Items.Add("Superior Landing, Project #7730909");
+            lstActiveProjects.Items.Add("Maylan Hotel, Project #7729998");
+            lstActiveProjects.Items.Add("Marquee Moon Dev., Project #");
+
+            lstReports.Items.Add("Employee: Alex Reynaud      Week of 3/27 Logged Hours: 22.38       Wage Rate: 9.50/hr        Current Total: $212.61");
+            lstReports.Items.Add("Employee: Alex Reynaud      Week of 4/3 Logged Hours: 37.00       Wage Rate: 9.50/hr        Current Total: $351.50");
+            lstReports.Items.Add("Employee: Alex Reynaud      Week of 4/10 Logged Hours: 35.00       Wage Rate: 9.50/hr        Current Total: $332.50");
+
+            lstProjectBids.Items.Add("Decatur County Courhouse Masonry Repairs          Valuation: $199,000        Location: Decatur, IN         Bid Date: May 1, 2017");
+            lstProjectBids.Items.Add("Mendards Warehouse (Addition)                     Valuation: $2,999,999      Location: Allen, IN           Bid Date: June 12, 2017");
+            lstProjectBids.Items.Add("Whihala Beach Conecession Bldg                    Valuation: $749,999        Location: Lake, IN            Bid Date: July 9, 2017");
         }
 
         private void displayMessage(string msg)
