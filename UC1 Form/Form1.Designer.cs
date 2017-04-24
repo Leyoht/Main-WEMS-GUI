@@ -42,7 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lstActiveProjects = new System.Windows.Forms.ListBox();
             this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet1 = new UC1_Form.Database1DataSet1();
+            this.database2DataSet = new UC1_Form.Database2DataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.lstReports = new System.Windows.Forms.ListBox();
             this.tabBookkeeper = new System.Windows.Forms.TabPage();
@@ -99,14 +99,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.eMPLOYEE_CONTRACTTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter();
-            this.tableAdapterManager = new UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager();
-            this.eMPLOYEETableAdapter = new UC1_Form.Database1DataSet1TableAdapters.EMPLOYEETableAdapter();
-            this.qUALIFICATIONTableAdapter = new UC1_Form.Database1DataSet1TableAdapters.QUALIFICATIONTableAdapter();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).BeginInit();
             this.tabBookkeeper.SuspendLayout();
             this.tabEmpSuperv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).BeginInit();
@@ -250,12 +246,12 @@
             // eMPLOYEE_CONTRACTBindingSource
             // 
             this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
-            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database1DataSet1;
+            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database2DataSet;
             // 
-            // database1DataSet1
+            // database2DataSet
             // 
-            this.database1DataSet1.DataSetName = "Database1DataSet1";
-            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.database2DataSet.DataSetName = "Database1DataSet1";
+            this.database2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -600,7 +596,7 @@
             // qUALIFICATIONBindingSource
             // 
             this.qUALIFICATIONBindingSource.DataMember = "QUALIFICATION";
-            this.qUALIFICATIONBindingSource.DataSource = this.database1DataSet1;
+            this.qUALIFICATIONBindingSource.DataSource = this.database2DataSet;
             // 
             // label7
             // 
@@ -786,7 +782,7 @@
             // eMPLOYEEBindingSource
             // 
             this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
-            this.eMPLOYEEBindingSource.DataSource = this.database1DataSet1;
+            this.eMPLOYEEBindingSource.DataSource = this.database2DataSet;
             // 
             // txtUsername
             // 
@@ -857,40 +853,6 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // eMPLOYEE_CONTRACTTableAdapter
-            // 
-            this.eMPLOYEE_CONTRACTTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CLIENT_EQUIPMENTTableAdapter = null;
-            this.tableAdapterManager.CLIENTTableAdapter = null;
-            this.tableAdapterManager.CLOCKTIMETableAdapter = null;
-            this.tableAdapterManager.CONTRACTTableAdapter = null;
-            this.tableAdapterManager.EMPLOYEE_CONTRACTTableAdapter = this.eMPLOYEE_CONTRACTTableAdapter;
-            this.tableAdapterManager.EMPLOYEE_CREDENTIALSTableAdapter = null;
-            this.tableAdapterManager.EMPLOYEE_QUALTableAdapter = null;
-            this.tableAdapterManager.EMPLOYEETableAdapter = this.eMPLOYEETableAdapter;
-            this.tableAdapterManager.EQUIPMENTTableAdapter = null;
-            this.tableAdapterManager.JOBSITETableAdapter = null;
-            this.tableAdapterManager.LINE_ITEMTableAdapter = null;
-            this.tableAdapterManager.PAYCHECKV1TableAdapter = null;
-            this.tableAdapterManager.PROJECT_QUALTableAdapter = null;
-            this.tableAdapterManager.QUALIFICATIONTableAdapter = null;
-            this.tableAdapterManager.SUPPLIER_EQUIPMENTTableAdapter = null;
-            this.tableAdapterManager.SUPPLIER_ITEMTableAdapter = null;
-            this.tableAdapterManager.SUPPLIERTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = UC1_Form.Database1DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // eMPLOYEETableAdapter
-            // 
-            this.eMPLOYEETableAdapter.ClearBeforeFill = true;
-            // 
-            // qUALIFICATIONTableAdapter
-            // 
-            this.qUALIFICATIONTableAdapter.ClearBeforeFill = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -914,7 +876,7 @@
             this.tabEmployee.ResumeLayout(false);
             this.tabEmployee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).EndInit();
             this.tabBookkeeper.ResumeLayout(false);
             this.tabBookkeeper.PerformLayout();
             this.tabEmpSuperv.ResumeLayout(false);
@@ -990,14 +952,10 @@
         private System.Windows.Forms.Button btnGrant;
         private System.Windows.Forms.Button btnEEOC;
         private System.Windows.Forms.Button btnVerify;
-        private Database1DataSet1 database1DataSet1;
+        private Database2DataSet database2DataSet;
         private System.Windows.Forms.BindingSource eMPLOYEE_CONTRACTBindingSource;
-        private Database1DataSet1TableAdapters.EMPLOYEE_CONTRACTTableAdapter eMPLOYEE_CONTRACTTableAdapter;
-        private Database1DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
-        private Database1DataSet1TableAdapters.EMPLOYEETableAdapter eMPLOYEETableAdapter;
         private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
         private System.Windows.Forms.BindingSource qUALIFICATIONBindingSource;
-        private Database1DataSet1TableAdapters.QUALIFICATIONTableAdapter qUALIFICATIONTableAdapter;
         private System.Windows.Forms.Button btnCurStat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label14;
