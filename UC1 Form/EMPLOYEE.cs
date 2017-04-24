@@ -7,137 +7,55 @@ namespace UC1_Form
 {
     public class Employee
     {
-        private double employeeID
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        private string address;
+        private DateTime dob;
+        private string firstName;
+        private bool fromOutside;
+        private string gender;
+        private DateTime hireDate;
+        private bool isSupervisor;
+        private string lastName;
+        private bool minStatus;
+        private string phoNum;
+        private string EmployeeID;
+        private string MI;
 
-            set
-            {
-            }
-        }
 
-        private string firstName
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public string getAddress() { return address; }
+        public void setAddress(string newAddress) { address = newAddress; }
 
-            set
-            {
-            }
-        }
+        public DateTime getDOB() { return dob; }
+        public void setDOB(DateTime newDOB) { dob = newDOB; }
 
-        private int lastName
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public string getEmployeeID() { return EmployeeID; }
+        public void setEmployeeID(string newEmployeeID) { EmployeeID = newEmployeeID; }
 
-            set
-            {
-            }
-        }
+        public string getFirstName() { return firstName; }
+        public void setFirstName(string newFirstName) { firstName = newFirstName; }
 
-        private bool minStatus
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public string getLastName() { return lastName; }
+        public void setLastName(string newLastName) { lastName = newLastName; }
 
-            set
-            {
-            }
-        }
+        public string getMI() { return MI; }
+        public void setMI(string newMI) { MI = newMI; }
 
-        private DateTime dob
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public bool getOutside() { return fromOutside; }
+        public void setOutside(bool newOutside) { fromOutside = newOutside; }
 
-            set
-            {
-            }
-        }
+        public string getGender() { return gender; }
+        public void setGender(string newGender) { gender = newGender; }
 
-        private string address
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public DateTime getHireDate() { return hireDate; }
+        public void setHireDate(DateTime newHireDate) { hireDate = newHireDate; }
 
-            set
-            {
-            }
-        }
+        public bool getSupervisor() { return isSupervisor; }
+        public void setSupervisor(bool newSupervisor) { isSupervisor = newSupervisor; }
 
-        private string phoNum
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public bool getStatus() { return minStatus; }
+        public void setStatus(bool newStatus) { minStatus = newStatus; }
 
-            set
-            {
-            }
-        }
-
-        private bool isSupervisor
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        private bool fromOutside
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        private DateTime hireDate
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        private string gender
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public string getPhoNum() { return phoNum; }
+        public void setPhoNum(string newPhoNum) { phoNum = newPhoNum; }
 
         public void access_personal_info()
         {
