@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.10, 24-04-2017
+//Build 0.3.11, 25-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck

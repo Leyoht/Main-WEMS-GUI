@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UC1_Form
 {
-    public class Bookkeeper : intBookkeeper
+    public class Bookkeeper : Management, intBookkeeper
     {
         public List<Employee> employee = new List<Employee>();
         public List<Jobsite> jobsite = new List<Jobsite>();
