@@ -30,5 +30,11 @@ namespace UC1_Form
         {
             throw new System.NotImplementedException();
         }
+
+        public string getOffLocation() { return offLocation; }
+        public void setOffLocation(string newOffLocation) { offLocation = newOffLocation; }
+
+        public string getOffPhone() { return offPhone; }
+        public void setOffPhone(string newOffPhone) { offPhone = newOffPhone; }
     }
 }

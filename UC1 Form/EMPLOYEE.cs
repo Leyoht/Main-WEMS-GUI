@@ -20,6 +20,42 @@ namespace UC1_Form
         public bool minStatus;
         public string phoNum;
 
+        public Contract Contract
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Jobsite Jobsite
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Paycheck Paycheck
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public string getAddress() { return address; }
         public void setAddress(string newAddress) { address = newAddress; }
 

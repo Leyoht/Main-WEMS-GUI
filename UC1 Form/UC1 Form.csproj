@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="Jobsite.cs" />
     <Compile Include="Management.cs" />
+    <Compile Include="Paycheck.cs" />
     <Compile Include="Paystub.cs">
       <SubType>Form</SubType>
     </Compile>
