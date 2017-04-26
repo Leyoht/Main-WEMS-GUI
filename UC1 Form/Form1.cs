@@ -15,7 +15,7 @@ using System.IO;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.14, 26-04-2017
+//Build 0.3.15, 26-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -27,14 +27,6 @@ namespace UC1_Form
 {
     public partial class Form1 : Form
     {
-        public void openConn()
-        {
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
-        }
-
         public void loadScript() //will be used to load the WilcoLoad.sql script 
         {
             FileInfo file = new FileInfo("WilcoLoad.sql");
@@ -73,44 +65,6 @@ namespace UC1_Form
             }/*/
         }
 
-
-        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        string connectionString;
-
-        public Form1()
-        {
-            InitializeComponent();
-            txtPassword.PasswordChar = '*';
-            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.DatabaseConnectionString"].ConnectionString;
-            //loadScript();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            txtUsername.Focus();
-
-            using (con)
-            {
-                openConn();
-
-                //writes to the Active Employees combobox on the Bookkeeper tab
-                SqlCommand getActEmp = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
-                getActEmp.Connection = con;
-                SqlDataReader sqlActReader = getActEmp.ExecuteReader();
-                while (sqlActReader.Read())
-                    cboActEmp.Items.Add(sqlActReader["name"].ToString());
-                sqlActReader.Close();
-
-                //writes to the Select Project combobox
-                SqlCommand getProj = new SqlCommand("SELECT Job_Name FROM CONTRACT WHERE Is_State = 1", con);
-                getProj.Connection = con;
-                SqlDataReader sqlProjReader = getProj.ExecuteReader();
-                while (sqlProjReader.Read())
-                    cboAssProj.Items.Add(sqlProjReader["job_name"].ToString());
-                sqlProjReader.Close();
-            }
-        }
-
         private void displayMessage(string msg)
         {
             MessageBox.Show(msg, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -126,64 +80,121 @@ namespace UC1_Form
             return false;
         }
 
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        string connectionString;
+        public void openConn()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+            txtPassword.PasswordChar = '*';
+            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.DatabaseConnectionString"].ConnectionString;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txtUsername.Focus();
+
+            //populates the comboboxes at startup
+            using (con)
+            {
+                openConn();
+
+                //writes to the Active Employees combobox on the Bookkeeper tab
+                SqlCommand getActEmp = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
+                getActEmp.Connection = con;
+                SqlDataReader sqlActReader = getActEmp.ExecuteReader();
+                while (sqlActReader.Read())
+                    cboActEmp.Items.Add(sqlActReader["name"].ToString());
+                sqlActReader.Close();
+
+                //writes to the Select Project combobox on the Employee Management tab
+                SqlCommand getProj = new SqlCommand("SELECT Job_Name FROM CONTRACT WHERE Is_State = 1", con);
+                getProj.Connection = con;
+                SqlDataReader sqlProjReader = getProj.ExecuteReader();
+                while (sqlProjReader.Read())
+                    cboAssProj.Items.Add(sqlProjReader["job_name"].ToString());
+                sqlProjReader.Close();
+
+                //writes to the Assign To combobox on the Equipment Management tab
+                SqlCommand getClient = new SqlCommand("SELECT Company_Name FROM CLIENT", con);
+                getClient.Connection = con;
+                SqlDataReader sqlClientReader = getClient.ExecuteReader();
+                while (sqlClientReader.Read())
+                    cboClient.Items.Add(sqlClientReader["company_name"].ToString());
+                sqlClientReader.Close();
+            }
+        }
 
         //ABOUT THE MAIN FORM
         /*/ The first thing the employee will see is a form that requires them to log in.
             At this point, the tabs are all disabled and will remain that way until the user logs in as an authorized member
             Once the user is in, there will pop-up that says "Welcome, {user name here}!"
         /*/
-
+        string userID;
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userLocal = txtUsername.Text;
-            string passLocal = txtPassword.Text;
+            //retrieves the username and password
             DataTable userpass = new System.Data.DataTable();
-            DataTable OLID = new System.Data.DataTable();
             using (SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
-                 "WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con))
+                 "WHERE [Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con))
             {
                 con.ConnectionString = connectionString;
-                con.Open();
                 uspw.Fill(userpass);
             }
-
-            SqlDataAdapter ID = new SqlDataAdapter("SELECT E.[Employee_ID] FROM [EMPLOYEE] E INNER JOIN [EMPLOYEE_CREDENTIALS] EC ON E.Employee_ID = EC.Employee_ID" +
-                "WHERE EC.Employee_ID = @Employee_ID", con);
-
-            string empID = ID.ToString();
-
-            if (userpass.Rows.Count == 1 || userLocal == "TESTMAN" && passLocal == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
+            //retrieves the employee_ID
+            DataTable getUID = new System.Data.DataTable();
+            using (SqlDataAdapter adUID = new SqlDataAdapter("SELECT Employee_ID FROM EMPLOYEE_CREDENTIALS E WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con))
             {
-                using (con = new SqlConnection(connectionString))
-                using (SqlDataAdapter name = new SqlDataAdapter("SELECT First_Name + ' ' + Last_Name FROM EMPLOYEE WHERE Employee_ID = '" + empID + "'", con))
-                {
-                    DataTable eName = new DataTable();
-                    //string empName = name.Fill(eName).ToString();
-                    displayMessage("Welcome!");
-                    btnLogin.Enabled = false;
-                    txtUsername.Clear();
-                    txtUsername.Enabled = false;
-                    txtPassword.Clear();
-                    txtPassword.Enabled = false;
-                    btnLogout.Enabled = true;
-                    tabMain.Enabled = true;
-                    //testLists(); //populates the forms on the "Standard Employee" tab once the user has logged in
-                    //enable the appropriate tabs, according to the user's credentials
-                }
+                con.ConnectionString = connectionString;
+                adUID.Fill(getUID);
+                //ensures the employee ID is saved locally for the session
+            }
+            //test to see if the username + password combo exists within our database
+            if (userpass.Rows.Count == 1 && getUID.Rows.Count == 1 || txtUsername.Text == "TESTMAN" && txtPassword.Text == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
+            {
+                userID = getUID.ToString();
+                displayMessage("Welcome!");
+                btnLogin.Enabled = false;
+                txtUsername.Clear();
+                txtUsername.Enabled = false;
+                txtPassword.Clear();
+                txtPassword.Enabled = false;
+                btnLogout.Enabled = true;
+                tabMain.Enabled = true;
+                //testLists(); //populates the forms on the "Standard Employee" tab once the user has logged in
+                //enable the appropriate tabs, according to the user's credentials
             }
             else
             {
                 displayError("Your username and/or password was incorrect");
                 txtUsername.Focus();
+                return;
             }
 
-            /*/ Send the information provided in the Username and Password textboxes and compare them to what is in the database
-                If the username-password combination does not match what we have on file, throw an error at the user
-                If the username-password combination DOES match what we have on file, pull up the first tab that the user qualifies for
-                    For example: a standard employee would only be able to access the "standard employee" section
-                    Meanwhile, a supervisor could access the Employee and Equipment management
-                    If it turns out the user does not have permission to access a certain tab, that tab will be locked and grayed out
-            /*/
+            //NOTE: THE CODE BELOW IS NOT YET WORKING AT INTENDED
+            openConn();
+
+            //populate lstActiveProjects, lstProjectBids, and lstReports
+            SqlCommand getActProj = new SqlCommand("SELECT Job_Name FROM CONTRACT AS C INNER JOIN EMPLOYEE_CONTRACT AS EC " +
+                "ON C.Contract_ID = EC.Contract_ID INNER JOIN EMPLOYEE AS E " +
+                "ON EC.Employee_ID = E.Employee_ID WHERE E.Employee_ID = '" + userID + "'", con);
+            getActProj.Connection = con;
+            SqlDataReader sqlAPReader = getActProj.ExecuteReader();
+            while (sqlAPReader.Read())
+            {
+                //add items into lstActiveProjects through for loops
+                for (int i=0; i<lstActiveProjects.Items.Count; i++)
+                {
+                    lstActiveProjects.Items.Add(sqlAPReader["job_name"].ToString());
+                }
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
