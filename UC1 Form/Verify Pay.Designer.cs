@@ -253,8 +253,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnContact;
-        private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
-        private System.Windows.Forms.BindingSource eMPLOYEE_CONTRACTBindingSource;
         private System.Windows.Forms.ComboBox cboJobs;
     }
 }
