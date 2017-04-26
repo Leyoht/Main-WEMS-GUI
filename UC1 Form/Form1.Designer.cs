@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabEmployee = new System.Windows.Forms.TabPage();
             this.label27 = new System.Windows.Forms.Label();
@@ -41,8 +40,6 @@
             this.lstProjectBids = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lstActiveProjects = new System.Windows.Forms.ListBox();
-            this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database2DataSet = new UC1_Form.Database2DataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.lstReports = new System.Windows.Forms.ListBox();
             this.tabBookkeeper = new System.Windows.Forms.TabPage();
@@ -74,7 +71,6 @@
             this.txtReqNum = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lstQual = new System.Windows.Forms.CheckedListBox();
-            this.qUALIFICATIONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.cmbAssProj = new System.Windows.Forms.ComboBox();
             this.lstQualEmp = new System.Windows.Forms.ListBox();
@@ -91,7 +87,6 @@
             this.cmbCondition = new System.Windows.Forms.ComboBox();
             this.lstOpenEquip = new System.Windows.Forms.ListBox();
             this.lstNewEquip = new System.Windows.Forms.ListBox();
-            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -101,13 +96,9 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabEmployee.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).BeginInit();
             this.tabBookkeeper.SuspendLayout();
             this.tabEmpSuperv.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).BeginInit();
             this.tabEmpEquip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -194,7 +185,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(497, 212);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(67, 28);
             this.btnBrowse.TabIndex = 11;
@@ -205,7 +196,7 @@
             // btnSubmitSE
             // 
             this.btnSubmitSE.Location = new System.Drawing.Point(463, 246);
-            this.btnSubmitSE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmitSE.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmitSE.Name = "btnSubmitSE";
             this.btnSubmitSE.Size = new System.Drawing.Size(100, 28);
             this.btnSubmitSE.TabIndex = 10;
@@ -216,7 +207,7 @@
             // txtBrowse
             // 
             this.txtBrowse.Location = new System.Drawing.Point(333, 215);
-            this.txtBrowse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.txtBrowse.Name = "txtBrowse";
             this.txtBrowse.Size = new System.Drawing.Size(155, 22);
             this.txtBrowse.TabIndex = 9;
@@ -226,7 +217,7 @@
             this.lstProjectBids.FormattingEnabled = true;
             this.lstProjectBids.ItemHeight = 16;
             this.lstProjectBids.Location = new System.Drawing.Point(293, 90);
-            this.lstProjectBids.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstProjectBids.Margin = new System.Windows.Forms.Padding(4);
             this.lstProjectBids.Name = "lstProjectBids";
             this.lstProjectBids.Size = new System.Drawing.Size(268, 100);
             this.lstProjectBids.TabIndex = 8;
@@ -243,25 +234,14 @@
             // 
             // lstActiveProjects
             // 
-            this.lstActiveProjects.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Job_Name", true));
             this.lstActiveProjects.FormattingEnabled = true;
             this.lstActiveProjects.ItemHeight = 16;
             this.lstActiveProjects.Location = new System.Drawing.Point(4, 62);
-            this.lstActiveProjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstActiveProjects.Margin = new System.Windows.Forms.Padding(4);
             this.lstActiveProjects.Name = "lstActiveProjects";
             this.lstActiveProjects.Size = new System.Drawing.Size(207, 84);
             this.lstActiveProjects.TabIndex = 6;
             this.lstActiveProjects.SelectedIndexChanged += new System.EventHandler(this.lstActiveProjects_SelectedIndexChanged);
-            // 
-            // eMPLOYEE_CONTRACTBindingSource
-            // 
-            this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
-            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database2DataSet;
-            // 
-            // database2DataSet
-            // 
-            this.database2DataSet.DataSetName = "Database1DataSet1";
-            this.database2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -278,7 +258,7 @@
             this.lstReports.FormattingEnabled = true;
             this.lstReports.ItemHeight = 16;
             this.lstReports.Location = new System.Drawing.Point(4, 190);
-            this.lstReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstReports.Margin = new System.Windows.Forms.Padding(4);
             this.lstReports.Name = "lstReports";
             this.lstReports.Size = new System.Drawing.Size(191, 84);
             this.lstReports.TabIndex = 1;
@@ -327,7 +307,7 @@
             // 
             this.cboActEmp.FormattingEnabled = true;
             this.cboActEmp.Location = new System.Drawing.Point(7, 90);
-            this.cboActEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboActEmp.Margin = new System.Windows.Forms.Padding(4);
             this.cboActEmp.Name = "cboActEmp";
             this.cboActEmp.Size = new System.Drawing.Size(160, 24);
             this.cboActEmp.TabIndex = 18;
@@ -336,7 +316,7 @@
             // 
             this.btnVerify.Enabled = false;
             this.btnVerify.Location = new System.Drawing.Point(429, 34);
-            this.btnVerify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerify.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(131, 28);
             this.btnVerify.TabIndex = 17;
@@ -348,7 +328,7 @@
             // 
             this.btnEEOC.Enabled = false;
             this.btnEEOC.Location = new System.Drawing.Point(372, 70);
-            this.btnEEOC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEEOC.Margin = new System.Windows.Forms.Padding(4);
             this.btnEEOC.Name = "btnEEOC";
             this.btnEEOC.Size = new System.Drawing.Size(187, 28);
             this.btnEEOC.TabIndex = 14;
@@ -519,7 +499,7 @@
             // 
             this.btnSubChange.Enabled = false;
             this.btnSubChange.Location = new System.Drawing.Point(433, 242);
-            this.btnSubChange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubChange.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubChange.Name = "btnSubChange";
             this.btnSubChange.Size = new System.Drawing.Size(125, 28);
             this.btnSubChange.TabIndex = 15;
@@ -541,7 +521,7 @@
             // 
             this.btnMoveEmp.Enabled = false;
             this.btnMoveEmp.Location = new System.Drawing.Point(237, 165);
-            this.btnMoveEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMoveEmp.Margin = new System.Windows.Forms.Padding(4);
             this.btnMoveEmp.Name = "btnMoveEmp";
             this.btnMoveEmp.Size = new System.Drawing.Size(84, 28);
             this.btnMoveEmp.TabIndex = 12;
@@ -555,7 +535,7 @@
             this.lstCurrentAss.FormattingEnabled = true;
             this.lstCurrentAss.ItemHeight = 16;
             this.lstCurrentAss.Location = new System.Drawing.Point(329, 154);
-            this.lstCurrentAss.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstCurrentAss.Margin = new System.Windows.Forms.Padding(4);
             this.lstCurrentAss.Name = "lstCurrentAss";
             this.lstCurrentAss.Size = new System.Drawing.Size(228, 68);
             this.lstCurrentAss.TabIndex = 11;
@@ -584,7 +564,7 @@
             // txtReqNum
             // 
             this.txtReqNum.Location = new System.Drawing.Point(237, 244);
-            this.txtReqNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReqNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtReqNum.Name = "txtReqNum";
             this.txtReqNum.ReadOnly = true;
             this.txtReqNum.Size = new System.Drawing.Size(132, 22);
@@ -602,19 +582,13 @@
             // 
             // lstQual
             // 
-            this.lstQual.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUALIFICATIONBindingSource, "Name", true));
             this.lstQual.Enabled = false;
             this.lstQual.FormattingEnabled = true;
             this.lstQual.Location = new System.Drawing.Point(385, 30);
-            this.lstQual.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstQual.Margin = new System.Windows.Forms.Padding(4);
             this.lstQual.Name = "lstQual";
             this.lstQual.Size = new System.Drawing.Size(172, 89);
             this.lstQual.TabIndex = 5;
-            // 
-            // qUALIFICATIONBindingSource
-            // 
-            this.qUALIFICATIONBindingSource.DataMember = "QUALIFICATION";
-            this.qUALIFICATIONBindingSource.DataSource = this.database2DataSet;
             // 
             // label7
             // 
@@ -633,7 +607,7 @@
             this.cmbAssProj.Items.AddRange(new object[] {
             "Example"});
             this.cmbAssProj.Location = new System.Drawing.Point(0, 47);
-            this.cmbAssProj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbAssProj.Margin = new System.Windows.Forms.Padding(4);
             this.cmbAssProj.Name = "cmbAssProj";
             this.cmbAssProj.Size = new System.Drawing.Size(211, 24);
             this.cmbAssProj.TabIndex = 3;
@@ -651,7 +625,7 @@
             "Dan Martersteck",
             "Alexander Reynaud"});
             this.lstQualEmp.Location = new System.Drawing.Point(0, 154);
-            this.lstQualEmp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstQualEmp.Margin = new System.Windows.Forms.Padding(4);
             this.lstQualEmp.Name = "lstQualEmp";
             this.lstQualEmp.Size = new System.Drawing.Size(228, 116);
             this.lstQualEmp.TabIndex = 2;
@@ -682,7 +656,7 @@
             // btnCurStat
             // 
             this.btnCurStat.Location = new System.Drawing.Point(9, 28);
-            this.btnCurStat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCurStat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCurStat.Name = "btnCurStat";
             this.btnCurStat.Size = new System.Drawing.Size(116, 28);
             this.btnCurStat.TabIndex = 12;
@@ -717,7 +691,7 @@
             this.cmbClient.Items.AddRange(new object[] {
             "Example"});
             this.cmbClient.Location = new System.Drawing.Point(400, 190);
-            this.cmbClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbClient.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClient.Name = "cmbClient";
             this.cmbClient.Size = new System.Drawing.Size(160, 24);
             this.cmbClient.TabIndex = 8;
@@ -759,7 +733,7 @@
             // 
             this.btnMoveEquip.Enabled = false;
             this.btnMoveEquip.Location = new System.Drawing.Point(179, 170);
-            this.btnMoveEquip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMoveEquip.Margin = new System.Windows.Forms.Padding(4);
             this.btnMoveEquip.Name = "btnMoveEquip";
             this.btnMoveEquip.Size = new System.Drawing.Size(43, 28);
             this.btnMoveEquip.TabIndex = 4;
@@ -787,7 +761,7 @@
             "Good",
             "New"});
             this.cmbCondition.Location = new System.Drawing.Point(400, 41);
-            this.cmbCondition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCondition.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(160, 24);
             this.cmbCondition.TabIndex = 2;
@@ -798,7 +772,7 @@
             this.lstOpenEquip.FormattingEnabled = true;
             this.lstOpenEquip.ItemHeight = 16;
             this.lstOpenEquip.Location = new System.Drawing.Point(11, 106);
-            this.lstOpenEquip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstOpenEquip.Margin = new System.Windows.Forms.Padding(4);
             this.lstOpenEquip.Name = "lstOpenEquip";
             this.lstOpenEquip.Size = new System.Drawing.Size(159, 164);
             this.lstOpenEquip.TabIndex = 1;
@@ -809,15 +783,10 @@
             this.lstNewEquip.FormattingEnabled = true;
             this.lstNewEquip.ItemHeight = 16;
             this.lstNewEquip.Location = new System.Drawing.Point(229, 106);
-            this.lstNewEquip.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstNewEquip.Margin = new System.Windows.Forms.Padding(4);
             this.lstNewEquip.Name = "lstNewEquip";
             this.lstNewEquip.Size = new System.Drawing.Size(159, 164);
             this.lstNewEquip.TabIndex = 0;
-            // 
-            // eMPLOYEEBindingSource
-            // 
-            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
-            this.eMPLOYEEBindingSource.DataSource = this.database2DataSet;
             // 
             // txtUsername
             // 
@@ -907,16 +876,12 @@
             this.tabMain.ResumeLayout(false);
             this.tabEmployee.ResumeLayout(false);
             this.tabEmployee.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).EndInit();
             this.tabBookkeeper.ResumeLayout(false);
             this.tabBookkeeper.PerformLayout();
             this.tabEmpSuperv.ResumeLayout(false);
             this.tabEmpSuperv.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qUALIFICATIONBindingSource)).EndInit();
             this.tabEmpEquip.ResumeLayout(false);
             this.tabEmpEquip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -984,10 +949,6 @@
         private System.Windows.Forms.Button btnGrant;
         private System.Windows.Forms.Button btnEEOC;
         private System.Windows.Forms.Button btnVerify;
-        private Database2DataSet database2DataSet;
-        private System.Windows.Forms.BindingSource eMPLOYEE_CONTRACTBindingSource;
-        private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
-        private System.Windows.Forms.BindingSource qUALIFICATIONBindingSource;
         private System.Windows.Forms.Button btnCurStat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label14;
