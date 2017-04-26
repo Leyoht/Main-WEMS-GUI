@@ -15,7 +15,7 @@ using System.IO;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.13, 25-04-2017
+//Build 0.3.14, 26-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -89,26 +89,25 @@ namespace UC1_Form
         {
             txtUsername.Focus();
 
-            using (con = new SqlConnection(connectionString))
+            using (con)
             {
                 openConn();
-                SqlCommand sqlCmd = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
-                sqlCmd.Connection = con;
-                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
 
-                while (sqlReader.Read())
-                {
-                    cboActEmp.Items.Add(sqlReader["name"].ToString());
-                }
-                sqlReader.Close();
+                //writes to the Active Employees combobox on the Bookkeeper tab
+                SqlCommand getActEmp = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
+                getActEmp.Connection = con;
+                SqlDataReader sqlActReader = getActEmp.ExecuteReader();
+                while (sqlActReader.Read())
+                    cboActEmp.Items.Add(sqlActReader["name"].ToString());
+                sqlActReader.Close();
 
-                //all these buttons are enabled now that a part of the combobox has been selected
-                btnVerify.Enabled = true;
-                btnEEOC.Enabled = true;
-                btnGrant.Enabled = true;
-                btnValid.Enabled = true;
-                btnEdit.Enabled = true;
-                lstHours.Enabled = true;
+                //writes to the Select Project combobox
+                SqlCommand getProj = new SqlCommand("SELECT Job_Name FROM CONTRACT WHERE Is_State = 1", con);
+                getProj.Connection = con;
+                SqlDataReader sqlProjReader = getProj.ExecuteReader();
+                while (sqlProjReader.Read())
+                    cboAssProj.Items.Add(sqlProjReader["job_name"].ToString());
+                sqlProjReader.Close();
             }
         }
 
@@ -255,6 +254,16 @@ namespace UC1_Form
         //ABOUT THE "BOOKKEEPER" TAB
         /*/...coming soon...
         /*/
+        private void cboActEmp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnVerify.Enabled = true;
+            btnEEOC.Enabled = true;
+            btnGrant.Enabled = true;
+            lstHours.Enabled = true;
+            btnValid.Enabled = true;
+            btnEdit.Enabled = true;
+        }
+
 
         //ABOUT THE "EMPLOYEE MANAGEMENT" TAB
         /*/ This tab will be available to:
@@ -290,7 +299,7 @@ namespace UC1_Form
             //The "Existing Assign Projects" combobox will be disabled if this is checked
         }
 
-        private void cmbAssProj_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboAssProj_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstQualEmp.Enabled = true;
             lstQual.Enabled = true;
@@ -330,7 +339,7 @@ namespace UC1_Form
             /*/
         }
 
-        private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstOpenEquip.Enabled = true;
             lstNewEquip.Enabled = true;
