@@ -24,6 +24,13 @@ namespace UC1_Form
 {
     public partial class Form1 : Form
     {
+        public void openConn()
+        {
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+        }
 
         public void testLists() //sends a test-run of test to the login script once the employee has logged in, ensuring the listboxes are functional
         {
@@ -63,12 +70,34 @@ namespace UC1_Form
         {
             InitializeComponent();
             txtPassword.PasswordChar = '*';
-            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.Database1ConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.Database2ConnectionString"].ConnectionString;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             txtUsername.Focus();
+
+            using (con = new SqlConnection(connectionString))
+            {
+                openConn();
+                SqlCommand sqlCmd = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
+                sqlCmd.Connection = con;
+                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
+
+                while (sqlReader.Read())
+                {
+                    cboActEmp.Items.Add(sqlReader["name"].ToString());
+                }
+                sqlReader.Close();
+
+                //all these buttons are enabled now that a part of the combobox has been selected
+                btnVerify.Enabled = true;
+                btnEEOC.Enabled = true;
+                btnGrant.Enabled = true;
+                btnValid.Enabled = true;
+                btnEdit.Enabled = true;
+                lstHours.Enabled = true;
+            }
         }
 
         private void displayMessage(string msg)
@@ -97,15 +126,20 @@ namespace UC1_Form
         {
             string userLocal = txtUsername.Text;
             string passLocal = txtPassword.Text;
-            SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
-                 "WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con);
-            SqlDataAdapter ID = new SqlDataAdapter("SELECT E.[Employee_ID] FROM [EMPLOYEE] E INNER JOIN [EMPLOYEE_CREDENTIALS] EC ON E.Employee_ID = EC.Employee_ID" +
-                "WHERE EC.Employee_ID = @Employee_ID", con);
             DataTable userpass = new System.Data.DataTable();
             DataTable OLID = new System.Data.DataTable();
-            uspw.Fill(userpass);
+            using (SqlDataAdapter uspw = new SqlDataAdapter("SELECT [Username], [Password] FROM [EMPLOYEE_CREDENTIALS] " +
+                 "WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con))
+            {
+                con.ConnectionString = connectionString;
+                con.Open();
+                uspw.Fill(userpass);
+            }
+
+            SqlDataAdapter ID = new SqlDataAdapter("SELECT E.[Employee_ID] FROM [EMPLOYEE] E INNER JOIN [EMPLOYEE_CREDENTIALS] EC ON E.Employee_ID = EC.Employee_ID" +
+                "WHERE EC.Employee_ID = @Employee_ID", con);
+
             string empID = ID.ToString();
-            
 
             if (userpass.Rows.Count == 1 || userLocal == "TESTMAN" && passLocal == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
             {
@@ -296,16 +330,6 @@ namespace UC1_Form
         private void btnVerify_Click(object sender, EventArgs e)
         {
             new VerifyPayment().Show();
-        }
-
-        private void cboActEmp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnVerify.Enabled = true;
-            btnEEOC.Enabled = true;
-            btnGrant.Enabled = true;
-            btnValid.Enabled = true;
-            btnEdit.Enabled = true;
-            lstHours.Enabled = true;
         }
     }
 }
