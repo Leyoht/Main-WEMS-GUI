@@ -31,15 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
-            this.eMPLOYEEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database2DataSet = new UC1_Form.Database2DataSet();
             this.txtLast = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMI = new System.Windows.Forms.TextBox();
             this.lstHours = new System.Windows.Forms.ListBox();
             this.lstWage = new System.Windows.Forms.ListBox();
-            this.eMPLOYEE_CONTRACTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,9 +45,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnContact = new System.Windows.Forms.Button();
             this.cboJobs = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +59,6 @@
             // 
             // txtFirst
             // 
-            this.txtFirst.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "First_Name", true));
             this.txtFirst.Enabled = false;
             this.txtFirst.Location = new System.Drawing.Point(11, 44);
             this.txtFirst.Margin = new System.Windows.Forms.Padding(2);
@@ -73,19 +66,8 @@
             this.txtFirst.Size = new System.Drawing.Size(72, 20);
             this.txtFirst.TabIndex = 1;
             // 
-            // eMPLOYEEBindingSource
-            // 
-            this.eMPLOYEEBindingSource.DataMember = "EMPLOYEE";
-            this.eMPLOYEEBindingSource.DataSource = this.database2DataSet;
-            // 
-            // database2DataSet
-            // 
-            this.database2DataSet.DataSetName = "Database1DataSet1";
-            this.database2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtLast
             // 
-            this.txtLast.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "Last_Name", true));
             this.txtLast.Enabled = false;
             this.txtLast.Location = new System.Drawing.Point(115, 44);
             this.txtLast.Margin = new System.Windows.Forms.Padding(2);
@@ -116,7 +98,6 @@
             // 
             // txtMI
             // 
-            this.txtMI.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "MI", true));
             this.txtMI.Enabled = false;
             this.txtMI.Location = new System.Drawing.Point(87, 44);
             this.txtMI.Margin = new System.Windows.Forms.Padding(2);
@@ -137,7 +118,6 @@
             // 
             // lstWage
             // 
-            this.lstWage.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.eMPLOYEE_CONTRACTBindingSource, "Wage", true));
             this.lstWage.Enabled = false;
             this.lstWage.FormattingEnabled = true;
             this.lstWage.Location = new System.Drawing.Point(262, 106);
@@ -145,11 +125,6 @@
             this.lstWage.Name = "lstWage";
             this.lstWage.Size = new System.Drawing.Size(81, 82);
             this.lstWage.TabIndex = 8;
-            // 
-            // eMPLOYEE_CONTRACTBindingSource
-            // 
-            this.eMPLOYEE_CONTRACTBindingSource.DataMember = "EMPLOYEE_CONTRACT";
-            this.eMPLOYEE_CONTRACTBindingSource.DataSource = this.database2DataSet;
             // 
             // label4
             // 
@@ -194,7 +169,6 @@
             // 
             // txtID
             // 
-            this.txtID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.eMPLOYEEBindingSource, "Employee_ID", true));
             this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(216, 44);
             this.txtID.Margin = new System.Windows.Forms.Padding(2);
@@ -257,9 +231,6 @@
             this.Name = "VerifyPayment";
             this.Text = "Verify Payment Data";
             this.Load += new System.EventHandler(this.VerifyPayment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMPLOYEE_CONTRACTBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,7 +253,6 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnContact;
-        private UC1_Form.Database2DataSet database2DataSet;
         private System.Windows.Forms.BindingSource eMPLOYEEBindingSource;
         private System.Windows.Forms.BindingSource eMPLOYEE_CONTRACTBindingSource;
         private System.Windows.Forms.ComboBox cboJobs;

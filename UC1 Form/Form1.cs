@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
 using System.Data.SqlClient;
+using System.IO;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.11, 25-04-2017
+//Build 0.3.14, 26-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -30,6 +33,14 @@ namespace UC1_Form
             {
                 con.Open();
             }
+        }
+
+        public void loadScript() //will be used to load the WilcoLoad.sql script 
+        {
+            FileInfo file = new FileInfo("WilcoLoad.sql");
+            string script = file.OpenText().ReadToEnd();
+            Server server = new Server(new ServerConnection(con));
+            server.ConnectionContext.ExecuteNonQuery(script);
         }
 
         public void testLists() //sends a test-run of test to the login script once the employee has logged in, ensuring the listboxes are functional
@@ -63,40 +74,40 @@ namespace UC1_Form
         }
 
 
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alex\Documents\GitHub\WEMS\Main WEMS GUI\UC1 Form\Database2.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         string connectionString;
 
         public Form1()
         {
             InitializeComponent();
             txtPassword.PasswordChar = '*';
-            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.Database2ConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["UC1_Form.Properties.Settings.DatabaseConnectionString"].ConnectionString;
+            //loadScript();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             txtUsername.Focus();
 
-            using (con = new SqlConnection(connectionString))
+            using (con)
             {
                 openConn();
-                SqlCommand sqlCmd = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
-                sqlCmd.Connection = con;
-                SqlDataReader sqlReader = sqlCmd.ExecuteReader();
 
-                while (sqlReader.Read())
-                {
-                    cboActEmp.Items.Add(sqlReader["name"].ToString());
-                }
-                sqlReader.Close();
+                //writes to the Active Employees combobox on the Bookkeeper tab
+                SqlCommand getActEmp = new SqlCommand("SELECT (First_Name + ' ' + Last_Name) AS Name FROM EMPLOYEE", con);
+                getActEmp.Connection = con;
+                SqlDataReader sqlActReader = getActEmp.ExecuteReader();
+                while (sqlActReader.Read())
+                    cboActEmp.Items.Add(sqlActReader["name"].ToString());
+                sqlActReader.Close();
 
-                //all these buttons are enabled now that a part of the combobox has been selected
-                btnVerify.Enabled = true;
-                btnEEOC.Enabled = true;
-                btnGrant.Enabled = true;
-                btnValid.Enabled = true;
-                btnEdit.Enabled = true;
-                lstHours.Enabled = true;
+                //writes to the Select Project combobox
+                SqlCommand getProj = new SqlCommand("SELECT Job_Name FROM CONTRACT WHERE Is_State = 1", con);
+                getProj.Connection = con;
+                SqlDataReader sqlProjReader = getProj.ExecuteReader();
+                while (sqlProjReader.Read())
+                    cboAssProj.Items.Add(sqlProjReader["job_name"].ToString());
+                sqlProjReader.Close();
             }
         }
 
@@ -243,6 +254,16 @@ namespace UC1_Form
         //ABOUT THE "BOOKKEEPER" TAB
         /*/...coming soon...
         /*/
+        private void cboActEmp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnVerify.Enabled = true;
+            btnEEOC.Enabled = true;
+            btnGrant.Enabled = true;
+            lstHours.Enabled = true;
+            btnValid.Enabled = true;
+            btnEdit.Enabled = true;
+        }
+
 
         //ABOUT THE "EMPLOYEE MANAGEMENT" TAB
         /*/ This tab will be available to:
@@ -278,7 +299,7 @@ namespace UC1_Form
             //The "Existing Assign Projects" combobox will be disabled if this is checked
         }
 
-        private void cmbAssProj_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboAssProj_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstQualEmp.Enabled = true;
             lstQual.Enabled = true;
@@ -318,7 +339,7 @@ namespace UC1_Form
             /*/
         }
 
-        private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstOpenEquip.Enabled = true;
             lstNewEquip.Enabled = true;
