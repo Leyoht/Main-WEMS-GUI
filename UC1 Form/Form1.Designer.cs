@@ -109,7 +109,7 @@
             this.tabMain.Controls.Add(this.tabEmpEquip);
             this.tabMain.Enabled = false;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
-            this.tabMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(2);
             this.tabMain.Multiline = true;
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
@@ -131,7 +131,7 @@
             this.tabEmployee.Controls.Add(this.label5);
             this.tabEmployee.Controls.Add(this.lstReports);
             this.tabEmployee.Location = new System.Drawing.Point(4, 22);
-            this.tabEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.tabEmployee.Name = "tabEmployee";
             this.tabEmployee.Size = new System.Drawing.Size(424, 223);
             this.tabEmployee.TabIndex = 2;
@@ -152,7 +152,7 @@
             // 
             this.btnEditPay.Enabled = false;
             this.btnEditPay.Location = new System.Drawing.Point(151, 172);
-            this.btnEditPay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditPay.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditPay.Name = "btnEditPay";
             this.btnEditPay.Size = new System.Drawing.Size(74, 23);
             this.btnEditPay.TabIndex = 16;
@@ -163,7 +163,7 @@
             // 
             this.btnSubPay.Enabled = false;
             this.btnSubPay.Location = new System.Drawing.Point(151, 200);
-            this.btnSubPay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubPay.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubPay.Name = "btnSubPay";
             this.btnSubPay.Size = new System.Drawing.Size(86, 23);
             this.btnSubPay.TabIndex = 15;
@@ -271,9 +271,9 @@
             this.tabBookkeeper.Controls.Add(this.label20);
             this.tabBookkeeper.Controls.Add(this.label19);
             this.tabBookkeeper.Location = new System.Drawing.Point(4, 22);
-            this.tabBookkeeper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabBookkeeper.Margin = new System.Windows.Forms.Padding(2);
             this.tabBookkeeper.Name = "tabBookkeeper";
-            this.tabBookkeeper.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabBookkeeper.Padding = new System.Windows.Forms.Padding(2);
             this.tabBookkeeper.Size = new System.Drawing.Size(424, 223);
             this.tabBookkeeper.TabIndex = 0;
             this.tabBookkeeper.Text = "Bookkeeper";
@@ -323,7 +323,7 @@
             // 
             this.btnGrant.Enabled = false;
             this.btnGrant.Location = new System.Drawing.Point(298, 85);
-            this.btnGrant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGrant.Margin = new System.Windows.Forms.Padding(2);
             this.btnGrant.Name = "btnGrant";
             this.btnGrant.Size = new System.Drawing.Size(122, 23);
             this.btnGrant.TabIndex = 13;
@@ -334,7 +334,7 @@
             // 
             this.btnEdit.Enabled = false;
             this.btnEdit.Location = new System.Drawing.Point(365, 202);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(56, 19);
             this.btnEdit.TabIndex = 12;
@@ -345,7 +345,7 @@
             // 
             this.btnValid.Enabled = false;
             this.btnValid.Location = new System.Drawing.Point(365, 178);
-            this.btnValid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnValid.Margin = new System.Windows.Forms.Padding(2);
             this.btnValid.Name = "btnValid";
             this.btnValid.Size = new System.Drawing.Size(56, 19);
             this.btnValid.TabIndex = 11;
@@ -365,7 +365,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(345, 127);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(76, 20);
@@ -416,7 +416,7 @@
             this.lstHours.Enabled = false;
             this.lstHours.FormattingEnabled = true;
             this.lstHours.Location = new System.Drawing.Point(4, 127);
-            this.lstHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstHours.Margin = new System.Windows.Forms.Padding(2);
             this.lstHours.Name = "lstHours";
             this.lstHours.Size = new System.Drawing.Size(325, 69);
             this.lstHours.TabIndex = 4;
@@ -467,9 +467,9 @@
             this.tabEmpSuperv.Controls.Add(this.cboAssProj);
             this.tabEmpSuperv.Controls.Add(this.lstQualEmp);
             this.tabEmpSuperv.Location = new System.Drawing.Point(4, 22);
-            this.tabEmpSuperv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEmpSuperv.Margin = new System.Windows.Forms.Padding(2);
             this.tabEmpSuperv.Name = "tabEmpSuperv";
-            this.tabEmpSuperv.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEmpSuperv.Padding = new System.Windows.Forms.Padding(2);
             this.tabEmpSuperv.Size = new System.Drawing.Size(424, 223);
             this.tabEmpSuperv.TabIndex = 1;
             this.tabEmpSuperv.Text = "Employee Management";
@@ -620,7 +620,7 @@
             this.tabEmpEquip.Controls.Add(this.lstOpenEquip);
             this.tabEmpEquip.Controls.Add(this.lstNewEquip);
             this.tabEmpEquip.Location = new System.Drawing.Point(4, 22);
-            this.tabEmpEquip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEmpEquip.Margin = new System.Windows.Forms.Padding(2);
             this.tabEmpEquip.Name = "tabEmpEquip";
             this.tabEmpEquip.Size = new System.Drawing.Size(424, 223);
             this.tabEmpEquip.TabIndex = 3;
@@ -671,7 +671,7 @@
             // 
             this.btnInvSub.Enabled = false;
             this.btnInvSub.Location = new System.Drawing.Point(296, 196);
-            this.btnInvSub.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInvSub.Margin = new System.Windows.Forms.Padding(2);
             this.btnInvSub.Name = "btnInvSub";
             this.btnInvSub.Size = new System.Drawing.Size(128, 24);
             this.btnInvSub.TabIndex = 7;
@@ -730,6 +730,7 @@
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(121, 21);
             this.cmbCondition.TabIndex = 2;
+            this.cmbCondition.SelectedIndexChanged += new System.EventHandler(this.cmbCondition_selectedIndexChanged);
             // 
             // lstOpenEquip
             // 
@@ -752,7 +753,7 @@
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(493, 61);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(104, 20);
             this.txtUsername.TabIndex = 0;
@@ -760,7 +761,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(493, 83);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(104, 20);
             this.txtPassword.TabIndex = 1;
@@ -768,7 +769,7 @@
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(540, 116);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(56, 25);
             this.btnLogin.TabIndex = 2;
@@ -810,7 +811,7 @@
             // 
             this.btnLogout.Enabled = false;
             this.btnLogout.Location = new System.Drawing.Point(540, 141);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(56, 25);
             this.btnLogout.TabIndex = 6;
@@ -832,7 +833,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.tabMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Wilco Employee Management System";
