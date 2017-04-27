@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using Microsoft.SqlServer.Management.Smo;
-using Microsoft.SqlServer.Management.Common;
 using System.Data.SqlClient;
 using System.IO;
 using UC_9_GUI; //takes imported code from Matt's GUI
@@ -31,8 +29,6 @@ namespace UC1_Form
         {
             FileInfo file = new FileInfo("WilcoLoad.sql");
             string script = file.OpenText().ReadToEnd();
-            Server server = new Server(new ServerConnection(con));
-            server.ConnectionContext.ExecuteNonQuery(script);
         }
 
         public void testLists() //sends a test-run of test to the login script once the employee has logged in, ensuring the listboxes are functional
@@ -190,7 +186,7 @@ namespace UC1_Form
             while (sqlAPReader.Read())
             {
                 //add items into lstActiveProjects through for loops
-                for (int i=0; i<lstActiveProjects.Items.Count; i++)
+                for (int i = 0; i < lstActiveProjects.Items.Count; i++)
                 {
                     lstActiveProjects.Items.Add(sqlAPReader["job_name"].ToString());
                 }
@@ -218,7 +214,7 @@ namespace UC1_Form
 
         private void btnEEOC_Click(object sender, EventArgs e)
         {
-            new EEOC_Compliance().Show();
+
             //this button will ONLY be enabled if the boolean value that determines the employee's EEOC status is set to TRUE
         }
 
@@ -361,7 +357,18 @@ namespace UC1_Form
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
-            new VerifyPayment().Show();
+            new VerifyPayment(cboActEmp.SelectedItem.ToString()).Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form NewPayStub = new Paystub();
+            NewPayStub.Show();
+        }
+
+        private void btnEEOC_Click_1(object sender, EventArgs e)
+        {
+            new EEOC_Compliance(cboActEmp.SelectedItem.ToString()).Show();
         }
     }
 }
