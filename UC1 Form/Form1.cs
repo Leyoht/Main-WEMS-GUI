@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using Microsoft.SqlServer.Management.Smo;
-using Microsoft.SqlServer.Management.Common;
 using System.Data.SqlClient;
 using System.IO;
 using UC_9_GUI; //takes imported code from Matt's GUI
@@ -27,13 +25,6 @@ namespace UC1_Form
 {
     public partial class Form1 : Form
     {
-        public void loadScript() //will be used to load the WilcoLoad.sql script 
-        {
-            FileInfo file = new FileInfo("WilcoLoad.sql");
-            string script = file.OpenText().ReadToEnd();
-            Server server = new Server(new ServerConnection(con));
-            server.ConnectionContext.ExecuteNonQuery(script);
-        }
 
         public void testLists() //sends a test-run of test to the login script once the employee has logged in, ensuring the listboxes are functional
         {
