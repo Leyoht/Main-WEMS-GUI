@@ -195,6 +195,7 @@ namespace UC1_Form
                     lstActiveProjects.Items.Add(sqlAPReader["job_name"].ToString());
                 }
             }
+            sqlAPReader.Close();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -292,6 +293,7 @@ namespace UC1_Form
             /*/ Requires at least one of the "Qualified Employees" to be selected
                 The employees selected in "Qualified Employees" will be moved to "Currently Assigned" when the button is clicked
             /*/
+            lstCurrentAss.Items.Add(lstQualEmp.SelectedItem.ToString());
         }
 
         private void lstQualEmp_SelectedIndexChanged(object sender, EventArgs e)
@@ -318,6 +320,38 @@ namespace UC1_Form
             btnMoveEmp.Enabled = true;
             btnSubChange.Enabled = true;
             //Will populate with the user's assigned projects once they're logged in
+
+            //placeholder updates to qualifications for testing
+            lstCurrentAss.Items.Clear();
+            lstQual.Items.Clear();
+            if (cboAssProj.SelectedItem.ToString() == "Accounting")
+            {
+                lstQual.Items.Add("Math");
+            }
+            if (cboAssProj.SelectedItem.ToString() == "Tower Construction")
+            {
+                lstQual.Items.Add("Building");
+            }
+            if (cboAssProj.SelectedItem.ToString() == "Electrical Engineering")
+            {
+                lstQual.Items.Add("Engineering Degree");
+            }
+            if (cboAssProj.SelectedItem.ToString() == "Emotional Support")
+            {
+                lstQual.Items.Add("Sensitivity");
+            }
+            if (cboAssProj.SelectedItem.ToString() == "Computer Programmer")
+            {
+                lstQual.Items.Add("Nerd");
+            }
+            if (cboAssProj.SelectedItem.ToString() == "Outside Analyst")
+            {
+                lstQual.Items.Add("Credentials");
+            }
+            if (cboAssProj.SelectedItem.ToString() == "Musician")
+            {
+                lstQual.Items.Add("Music Degree");
+            }
         }
 
         private void lstCurrentAss_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,13 +376,82 @@ namespace UC1_Form
             //Assuming the form has been updated with new values, the inventory report information will be updated before the report form pops up
             new Inventory_Report().Show();
         }
-
+        
         private void btnMoveEquip_Click(object sender, EventArgs e)
         {
             /*/ Requires at least one of the "Qualified Employees" to be selected
                 The employees selected in "Qualified Employees" will be moved to "Currently Assigned" when the button is clicked
             /*/
+
+            lstNewEquip.Items.Add(lstOpenEquip.SelectedItem.ToString());
+
         }
+        private void cmbCondition_selectedIndexChanged(Object sender, EventArgs e)
+        {
+            lstOpenEquip.Items.Clear();
+            String result = cmbCondition.Text;
+            //Fills the lstOpenEquipment list box with the appropriate equipment based on condition
+            ////poor
+      
+            if (result.Equals("Poor"))
+            {
+                SqlCommand getEquip = new SqlCommand("SELECT Name FROM EQUIPMENT WHERE Equip_Condition = 'Poor'", con);
+                getEquip.Connection = con;
+                SqlDataReader sqlEquipReader = getEquip.ExecuteReader();
+                while (sqlEquipReader.Read())
+                {
+                    String item = (String)sqlEquipReader["Name"];
+                    lstOpenEquip.Items.Add(item);
+                    lstOpenEquip.Refresh();
+                }
+                sqlEquipReader.Close();
+            }
+            //fair
+            if (cmbCondition.SelectedItem.ToString() == "Fair")
+            {
+                SqlCommand getEquip = new SqlCommand("SELECT Name FROM EQUIPMENT WHERE Equip_Condition = 'Fair'", con);
+                getEquip.Connection = con;
+                SqlDataReader sqlEquipReader = getEquip.ExecuteReader();
+                while (sqlEquipReader.Read())
+                {
+                    String item = (String)sqlEquipReader["Name"];
+                    //lstOpenEquip.Items.Add(sqlEquipReader["Name"].ToString());3
+                    lstOpenEquip.Items.Add(item);
+                    lstOpenEquip.Refresh();
+                }
+                sqlEquipReader.Close();
+            }
+            //good
+            if (cmbCondition.SelectedItem.ToString() == "Good")
+            {
+                SqlCommand getEquip = new SqlCommand("SELECT Name FROM EQUIPMENT WHERE Equip_Condition = 'Good'", con);
+                getEquip.Connection = con;
+                SqlDataReader sqlEquipReader = getEquip.ExecuteReader();
+                while (sqlEquipReader.Read())
+                {
+                    String item = (String)sqlEquipReader["Name"];
+                    lstOpenEquip.Items.Add(item);
+                    lstOpenEquip.Refresh();
+                }
+                sqlEquipReader.Close();
+            }
+            //new
+            if (cmbCondition.SelectedItem.ToString() == "New")
+            {
+                SqlCommand getEquip = new SqlCommand("SELECT Name FROM EQUIPMENT WHERE Equip_Condition = 'New'", con);
+                getEquip.Connection = con;
+                SqlDataReader sqlEquipReader = getEquip.ExecuteReader();
+                while (sqlEquipReader.Read())
+                {
+                    String item = (String)sqlEquipReader["Name"];
+                    lstOpenEquip.Items.Add(item);
+                    lstOpenEquip.Refresh();
+                }
+                sqlEquipReader.Close();
+            }
+        }
+        
+
 
         private void cboClient_SelectedIndexChanged(object sender, EventArgs e)
         {
