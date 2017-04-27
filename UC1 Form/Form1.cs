@@ -181,7 +181,7 @@ namespace UC1_Form
             while (sqlAPReader.Read())
             {
                 //add items into lstActiveProjects through for loops
-                for (int i=0; i<lstActiveProjects.Items.Count; i++)
+                for (int i = 0; i < lstActiveProjects.Items.Count; i++)
                 {
                     lstActiveProjects.Items.Add(sqlAPReader["job_name"].ToString());
                 }
@@ -210,7 +210,7 @@ namespace UC1_Form
 
         private void btnEEOC_Click(object sender, EventArgs e)
         {
-            new EEOC_Compliance().Show();
+
             //this button will ONLY be enabled if the boolean value that determines the employee's EEOC status is set to TRUE
         }
 
@@ -455,7 +455,18 @@ namespace UC1_Form
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
-            new VerifyPayment().Show();
+            new VerifyPayment(cboActEmp.SelectedItem.ToString()).Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Form NewPayStub = new Paystub();
+            NewPayStub.Show();
+        }
+
+        private void btnEEOC_Click_1(object sender, EventArgs e)
+        {
+            new EEOC_Compliance(cboActEmp.SelectedItem.ToString()).Show();
         }
     }
 }

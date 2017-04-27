@@ -12,9 +12,12 @@ namespace UC_9_GUI
 {
     public partial class VerifyPayment : Form
     {
-        public VerifyPayment()
+        string name;
+
+        public VerifyPayment(string Iname)
         {
             InitializeComponent();
+            name = Iname;
         }
 
         private void txtMI_TextChanged(object sender, EventArgs e)
@@ -39,7 +42,11 @@ namespace UC_9_GUI
 
         private void VerifyPayment_Load(object sender, EventArgs e)
         {
-
+            int space = name.IndexOf(" ");
+            txtFirst.Text = name.Substring(0, space);
+            int spacee = space++;
+            txtLast.Text = name.Substring(spacee);
         }
     }
 }
+
