@@ -51,7 +51,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnValid = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPayRate = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -249,7 +249,6 @@
             this.lstReports.Name = "lstReports";
             this.lstReports.Size = new System.Drawing.Size(144, 69);
             this.lstReports.TabIndex = 1;
-            this.lstReports.SelectedIndexChanged += new System.EventHandler(this.lstReports_SelectedIndexChanged);
             // 
             // tabBookkeeper
             // 
@@ -261,7 +260,7 @@
             this.tabBookkeeper.Controls.Add(this.btnEdit);
             this.tabBookkeeper.Controls.Add(this.btnValid);
             this.tabBookkeeper.Controls.Add(this.label26);
-            this.tabBookkeeper.Controls.Add(this.textBox1);
+            this.tabBookkeeper.Controls.Add(this.txtPayRate);
             this.tabBookkeeper.Controls.Add(this.label25);
             this.tabBookkeeper.Controls.Add(this.label24);
             this.tabBookkeeper.Controls.Add(this.label23);
@@ -329,6 +328,7 @@
             this.btnGrant.TabIndex = 13;
             this.btnGrant.Text = "Grant Employee Edit";
             this.btnGrant.UseVisualStyleBackColor = true;
+            this.btnGrant.Click += new System.EventHandler(this.btnGrant_Click);
             // 
             // btnEdit
             // 
@@ -362,14 +362,14 @@
             this.label26.TabIndex = 10;
             this.label26.Text = "Pay";
             // 
-            // textBox1
+            // txtPayRate
             // 
-            this.textBox1.Location = new System.Drawing.Point(345, 127);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtPayRate.Location = new System.Drawing.Point(345, 127);
+            this.txtPayRate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPayRate.Name = "txtPayRate";
+            this.txtPayRate.ReadOnly = true;
+            this.txtPayRate.Size = new System.Drawing.Size(76, 20);
+            this.txtPayRate.TabIndex = 9;
             // 
             // label25
             // 
@@ -603,7 +603,6 @@
             this.lstQualEmp.Name = "lstQualEmp";
             this.lstQualEmp.Size = new System.Drawing.Size(172, 95);
             this.lstQualEmp.TabIndex = 2;
-            this.lstQualEmp.SelectedIndexChanged += new System.EventHandler(this.lstQualEmp_SelectedIndexChanged);
             // 
             // tabEmpEquip
             // 
@@ -659,8 +658,6 @@
             // cboClient
             // 
             this.cboClient.FormattingEnabled = true;
-            this.cboClient.Items.AddRange(new object[] {
-            "Example"});
             this.cboClient.Location = new System.Drawing.Point(300, 154);
             this.cboClient.Name = "cboClient";
             this.cboClient.Size = new System.Drawing.Size(121, 21);
@@ -901,7 +898,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnValid;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPayRate;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;

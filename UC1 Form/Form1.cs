@@ -13,7 +13,7 @@ using System.IO;
 using UC_9_GUI; //takes imported code from Matt's GUI
 
 
-//Build 0.3.15, 26-04-2017
+//Build 0.4, 27-04-2017
 
 //CNIT 280 Group 17
 //Alex Reynaud, David Fisher, Evan Ligett, Matt Camino, Dan Martersteck
@@ -139,18 +139,18 @@ namespace UC1_Form
                 con.ConnectionString = connectionString;
                 uspw.Fill(userpass);
             }
-            //retrieves the employee_ID
-            DataTable getUID = new System.Data.DataTable();
-            using (SqlDataAdapter adUID = new SqlDataAdapter("SELECT Employee_ID FROM EMPLOYEE_CREDENTIALS E WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con))
-            {
-                con.ConnectionString = connectionString;
-                adUID.Fill(getUID);
-                //ensures the employee ID is saved locally for the session
-            }
+
+            //ensures the employee ID is saved locally for the session
+            
             //test to see if the username + password combo exists within our database
-            if (userpass.Rows.Count == 1 && getUID.Rows.Count == 1 || txtUsername.Text == "TESTMAN" && txtPassword.Text == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
+            if (userpass.Rows.Count == 1 || txtUsername.Text == "TESTMAN" && txtPassword.Text == "NAMTSET") //this means there is ONLY one row within the entire database that has this specific username+password combo
             {
-                userID = getUID.ToString();
+                openConn();
+
+                //retrieves the employee_ID
+                SqlCommand adUID = new SqlCommand("SELECT Employee_ID FROM EMPLOYEE_CREDENTIALS E WHERE[Username] = '" + txtUsername.Text + "' and[Password] = '" + txtPassword.Text + "'", con);
+                userID = adUID.ExecuteScalar().ToString();
+
                 displayMessage("Welcome!");
                 btnLogin.Enabled = false;
                 txtUsername.Clear();
@@ -159,7 +159,6 @@ namespace UC1_Form
                 txtPassword.Enabled = false;
                 btnLogout.Enabled = true;
                 tabMain.Enabled = true;
-                //testLists(); //populates the forms on the "Standard Employee" tab once the user has logged in
                 //enable the appropriate tabs, according to the user's credentials
             }
             else
@@ -169,24 +168,26 @@ namespace UC1_Form
                 return;
             }
 
-            //NOTE: THE CODE BELOW IS NOT YET WORKING AT INTENDED
-            openConn();
-
-            //populate lstActiveProjects, lstProjectBids, and lstReports
+            //populate lstActiveProjects
             SqlCommand getActProj = new SqlCommand("SELECT Job_Name FROM CONTRACT AS C INNER JOIN EMPLOYEE_CONTRACT AS EC " +
                 "ON C.Contract_ID = EC.Contract_ID INNER JOIN EMPLOYEE AS E " +
                 "ON EC.Employee_ID = E.Employee_ID WHERE E.Employee_ID = '" + userID + "'", con);
             getActProj.Connection = con;
             SqlDataReader sqlAPReader = getActProj.ExecuteReader();
             while (sqlAPReader.Read())
-            {
-                //add items into lstActiveProjects through for loops
-                for (int i = 0; i < lstActiveProjects.Items.Count; i++)
-                {
                     lstActiveProjects.Items.Add(sqlAPReader["job_name"].ToString());
-                }
-            }
             sqlAPReader.Close();
+
+            //populate lstReports
+            SqlCommand getReport = new SqlCommand("SELECT Date_Sent FROM PAYCHECKV1 AS P INNER JOIN EMPLOYEE AS E " +
+                "ON P.Employee_ID = E.Employee_ID WHERE E.Employee_ID = '" + userID + "'", con);
+            getReport.Connection = con;
+            SqlDataReader sqlRepReader = getReport.ExecuteReader();
+            while (sqlRepReader.Read())
+                lstReports.Items.Add(sqlRepReader["Date_Sent"].ToString());
+            sqlRepReader.Close();
+
+            //populate lstProjectBids
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -210,13 +211,10 @@ namespace UC1_Form
 
         private void btnEEOC_Click(object sender, EventArgs e)
         {
-
+            new EEOC_Compliance(cboActEmp.SelectedItem.ToString()).Show();
             //this button will ONLY be enabled if the boolean value that determines the employee's EEOC status is set to TRUE
         }
 
-        private const int cSize = 40;
-        private int mIndex;
-        private string[] mFile = new string[cSize];
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             //opens a prompt for the user to upload a spreadsheet
@@ -228,8 +226,6 @@ namespace UC1_Form
             {
                 txtBrowse.Text = ofd.FileName;
             }
-            //sends the file name to the textbox
-            mFile[mIndex] = txtBrowse.Text;
         }
 
         private void btnSubmitSE_Click(object sender, EventArgs e)
@@ -245,26 +241,41 @@ namespace UC1_Form
             //populates with the employee's current projects once they log in
         }
 
-        private void lstReports_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnEditPay.Enabled = true;
-            /*/ This area will be populated with links to PDF time reports once the employee logs in
-                The most recent time report will be shown at the top of the list
-                Downloading a PDF is as simple as double-clicking one of the listed items
-            /*/
-        }
-
         //ABOUT THE "BOOKKEEPER" TAB
         /*/...coming soon...
         /*/
         private void cboActEmp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            openConn();
+
+            //puts the employee's pay rate in txtPayRate
+            SqlCommand getHR = new SqlCommand("SELECT Hourly_Rate FROM PAYCHECKV1 WHERE Employee_ID = '" + userID + "'", con);
+            getHR.Connection = con;
+            SqlDataReader sqlHRReader = getHR.ExecuteReader();
+            while (sqlHRReader.Read())
+                txtPayRate.Text = sqlHRReader["Hourly_Rate"].ToString();
+            sqlHRReader.Close();
+
+            /*///puts clocktime hours into lstHours
+            SqlCommand getCT = new SqlCommand("", con);
+            getCT.Connection = con;
+            SqlDataReader sqlCTReader = getCT.ExecuteReader();
+            while (sqlCTReader.Read())
+                lstHours.Items.Add(sqlCTReader[""].ToString());
+            sqlCTReader.Close();/*/
+
             btnVerify.Enabled = true;
             btnEEOC.Enabled = true;
             btnGrant.Enabled = true;
             lstHours.Enabled = true;
             btnValid.Enabled = true;
             btnEdit.Enabled = true;
+        }
+
+        private void btnGrant_Click(object sender, EventArgs e)
+        {
+            btnEditPay.Enabled = true;
+            displayMessage("Access to edit the paystub has been granted to the employee");
         }
 
 
@@ -284,17 +295,21 @@ namespace UC1_Form
             /*/ Requires at least one of the "Qualified Employees" to be selected
                 The employees selected in "Qualified Employees" will be moved to "Currently Assigned" when the button is clicked
             /*/
-            lstCurrentAss.Items.Add(lstQualEmp.SelectedItem.ToString());
-        }
-
-        private void lstQualEmp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            if (lstQual.SelectedIndex == -1) {
+                lstCurrentAss.Items.Add(lstQualEmp.SelectedItem.ToString());
+                lstQualEmp.Items.Remove(lstQualEmp.SelectedItem.ToString());
+            } else
+            {
+                displayError("Please select an object first");
+                return;
+            }
         }
 
         private void btnSubChange_Click(object sender, EventArgs e)
         {
             //takes the employees listed in lstCurrentAss and updates the database with the values
+            displayMessage("Changes have been submitted");
+            lstCurrentAss.Items.Clear();
         }
 
         private void chkNewProj_CheckedChanged(object sender, EventArgs e)
@@ -374,7 +389,14 @@ namespace UC1_Form
                 The employees selected in "Qualified Employees" will be moved to "Currently Assigned" when the button is clicked
             /*/
 
-            lstNewEquip.Items.Add(lstOpenEquip.SelectedItem.ToString());
+            if (lstOpenEquip.SelectedIndex != -1) {
+                lstNewEquip.Items.Add(lstOpenEquip.SelectedItem.ToString());
+                lstOpenEquip.Items.Remove(lstOpenEquip.SelectedItem.ToString());
+            } else
+            {
+                displayError("Please select an object first");
+                return;
+            }
 
         }
         private void cmbCondition_selectedIndexChanged(Object sender, EventArgs e)
@@ -462,11 +484,6 @@ namespace UC1_Form
         {
             Form NewPayStub = new Paystub();
             NewPayStub.Show();
-        }
-
-        private void btnEEOC_Click_1(object sender, EventArgs e)
-        {
-            new EEOC_Compliance(cboActEmp.SelectedItem.ToString()).Show();
         }
     }
 }
